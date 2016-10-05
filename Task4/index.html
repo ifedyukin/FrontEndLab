@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Lab3 - Task 4</title>
+    <style type="text/css">
+		.bold{font-weight: bold;}
+		.tab{padding-left: 25px;}
+		input[type=range]::-moz-range-track{border-radius: 8px;height: 7px;border: 1px solid #bdc3c7;background-color: #fff;}
+		input[type=range]::-moz-range-thumb{background: #ecf0f1;border: 1px solid #bdc3c7;width: 20px;height: 20px;border-radius: 10px;cursor: pointer;}
+		textarea{width: 400px; height: 200px;}
+    </style>
+</head>
+<body>
+    <form action="http://httpbin.org/post" method="post">
+    	<fieldset>
+    		<legend>Personal data</legend>
+    		<label>First Name <input type="text" name="firstname" style="margin-left: 20px;"></label><br><br>
+    		<label>Middle Name <input type="text" name="middlename" style="margin-left: 3px;"></label><br><br>
+            <label>Surname <input type="text" name="surname" style="margin-left: 37px;"></label><br><br>
+    		Sex<div style="margin-left: 110px; margin-top: -30px;"><input type="radio" name="sex" value="male" checked>Male <br><input type="radio" name="sex" value="male">Female</div><br>
+    		<label>Age 
+    		<input type="number" name="age" min="18" max="101" style="margin-left: 78px;"></label><br><br>
+    		<label>Country<input name="country" list="country" style="margin-left: 48px;"><datalist id="country">
+		      <option value="Russia">
+		      <option value="USA">
+		      <option value="Japan">
+		      <option value="China">
+		      <option value="UK">
+		    </datalist></label><br><br>
+		    City <input type="checkbox" name="city" value="Ryazan" style="margin-left: 77px;">Ryazan	<input type="checkbox" name="city" value="Moscow">Moscow<br><br>
+		    <label>Photography <input type="file" name="photography" style="margin-left: 5px;"></label><hr>
+			<div style="float:left; margin-top: 55px; margin-right: 37px;">Title</div> <select name="titles[]" multiple size="4" style="height: 140px;">
+			  	<option class="bold" value="volvo">Technologies</option>
+			    <option class="tab" value="saab">Web Master</option>
+			    <option class="tab" value="saab">Database Administrator</option>
+			    <option class="tab" value="saab">Computer-aided design</option>
+			    <option class="bold" value="volvo">Finance</option>
+			    <option class="tab" value="saab">Economic Planning</option>
+			    <option class="tab" value="saab">Management accounting</option>
+			    <option class="tab" value="saab">Budgeting and planning</option>
+			  </select><br><br>
+			<label>Salary  <input type="range" name="Salary" min="0" max="10" style="margin-left: 20px;"></label><br><br>
+			<textarea name="aboutYou" placeholder="Tell us about yourself..."></textarea>
+    	</fieldset>
+    	<fieldset>
+    		<legend>Contact Information</legend>
+    		<label>Site <input type="url" name="site" style="margin-left: 34px;"></label><br><br>
+    		<label>Email <input type="email" name="email" style="margin-left: 18px;"></label><br><br>
+    		<label>Phone <input type="tel" name="phone" style="margin-left: 15px;"></label><br><br>
+    	</fieldset><br>
+    	<label>Password <input type="password" name="password" required></label><br><br>
+    	<input type="submit" value="Отправить"> <input type="reset" value="Сбросить">
+    </form>
+</body>
+</html>

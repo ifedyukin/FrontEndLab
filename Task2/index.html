@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Lab3 - Task 2</title>
+</head>
+<body>
+    <h1>Post</h1>
+    <form action="http://httpbin.org/post" method="post">
+    	<fieldset>
+    		<legend>Personal data</legend>
+            <label>First Name <input type="text" name="firstname"></label><br><br>
+    		<label>Surname <input type="text" name="surname"></label><br><br>
+    		Sex 
+            <div style="margin-left: 50px; margin-top: -30px;"><input type="radio" name="sex" value="male" checked>male <br><input type="radio" name="sex" value="male">female</div>
+    	</fieldset>
+    	<fieldset>
+    		<legend>Contact Information</legend>
+    		<label>Site <input type="url" name="site"></label><br><br>
+    		<label>Email <input type="email" name="email"></label><br><br>
+    		<label>Phone <input type="tel" name="phone"></label><br><br>
+    	</fieldset><br>
+    	<input type="submit" value="Отправить">
+    </form>
+    <h1>Get</h1>
+    <form action="http://httpbin.org/get" method="Get">
+        <fieldset>
+            <legend>Personal data</legend>
+            <label>First Name <input type="text" name="firstname"></label><br><br>
+            <label>Surname <input type="text" name="surname"></label><br><br>
+            Sex 
+            <div style="margin-left: 50px; margin-top: -30px;"><input type="radio" name="sex" value="male" checked>male <br><input type="radio" name="sex" value="male">female</div>
+        </fieldset>
+        <fieldset>
+            <legend>Contact Information</legend>
+            <label>Site <input type="url" name="site"></label><br><br>
+            <label>Email <input type="email" name="email"></label><br><br>
+            <label>Phone <input type="tel" name="phone"></label><br><br>
+        </fieldset><br>
+        <input type="submit" value="Отправить">
+    </form>
+</body>
+</html>
