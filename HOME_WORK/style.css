@@ -468,9 +468,117 @@ section{
 
   60%{
     -moz-transform:    scale(2.5);
-     -o-transform:      scale(2.5);
-     -webkit-transform: scale(2.5);
-     transform:         scale(2.5);
+    -o-transform:      scale(2.5);
+    -webkit-transform: scale(2.5);
+    transform:         scale(2.5);
+    border-radius: 0;
+  }
+
+  80%{
+    -moz-transform:    rotate(45deg);
+     -o-transform:      rotate(45deg);
+     -webkit-transform: rotate(45deg);
+     transform:         rotate(45deg);
+    border-radius: 0;
+  }
+
+  100%{
+  background: gold;
+  box-shadow: 0 -200px 100px -120px crimson inset;
+  }
+}
+
+@-webkit-keyframes infinite_animation{
+  0%{
+    border-radius: 100px;
+  }
+
+  20%{
+    border-radius: 0;
+  }
+
+  40%{
+    background: skyblue;
+    box-shadow: 0 -200px 100px -100px yellowgreen inset;
+  }
+
+  60%{
+    -moz-transform:    scale(2.5);
+    -o-transform:      scale(2.5);
+    -webkit-transform: scale(2.5);
+    transform:         scale(2.5);
+    border-radius: 0;
+  }
+
+  80%{
+    -moz-transform:    rotate(45deg);
+     -o-transform:      rotate(45deg);
+     -webkit-transform: rotate(45deg);
+     transform:         rotate(45deg);
+    border-radius: 0;
+  }
+
+  100%{
+  background: gold;
+  box-shadow: 0 -200px 100px -120px crimson inset;
+  }
+}
+
+@-ms-keyframes infinite_animation{
+  0%{
+    border-radius: 100px;
+  }
+
+  20%{
+    border-radius: 0;
+  }
+
+  40%{
+    background: skyblue;
+    box-shadow: 0 -200px 100px -100px yellowgreen inset;
+  }
+
+  60%{
+    -moz-transform:    scale(2.5);
+    -o-transform:      scale(2.5);
+    -webkit-transform: scale(2.5);
+    transform:         scale(2.5);
+    border-radius: 0;
+  }
+
+  80%{
+    -moz-transform:    rotate(45deg);
+     -o-transform:      rotate(45deg);
+     -webkit-transform: rotate(45deg);
+     transform:         rotate(45deg);
+    border-radius: 0;
+  }
+
+  100%{
+  background: gold;
+  box-shadow: 0 -200px 100px -120px crimson inset;
+  }
+}
+
+@-o-keyframes infinite_animation{
+  0%{
+    border-radius: 100px;
+  }
+
+  20%{
+    border-radius: 0;
+  }
+
+  40%{
+    background: skyblue;
+    box-shadow: 0 -200px 100px -100px yellowgreen inset;
+  }
+
+  60%{
+    -moz-transform:    scale(2.5);
+    -o-transform:      scale(2.5);
+    -webkit-transform: scale(2.5);
+    transform:         scale(2.5);
     border-radius: 0;
   }
 
