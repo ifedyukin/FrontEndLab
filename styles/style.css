@@ -349,6 +349,7 @@ a#settings_button div{
 }
 
 .book{
+	cursor: pointer;
 	margin-top: 25px;
 	margin-left: 20px;
 	padding: 10px;
@@ -367,6 +368,10 @@ a#settings_button div{
 	margin-top: 7px;
 	font-size: 90%;
 	font-weight: bold;
+}
+
+.book_title:hover{
+	text-decoration: underline;
 }
 
 .book_author{
