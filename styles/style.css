@@ -2,11 +2,11 @@
 
 body{
 	overflow-y: hidden;
+	min-width: 1010px;
 }
 
 #top_menu{
 	top: 0;
-	min-width: 400px;
 	width: 100%;
 	height: 50px;
 	background-color: #2f3649;
@@ -117,7 +117,7 @@ body{
 .side_menu a{
 	text-decoration: none;
 	color: #b5b9c4;
-	width: 90%;
+	width: 91%;
 	display: block;
 	padding: 10px;
 }
@@ -271,4 +271,63 @@ a#settings_button div{
 	height: 20px;
 	margin-left: 25px;
 	margin-top: 15px;
+}
+
+#content{
+	padding-left: 220px;
+}
+
+.head_content{
+	background-color: #eef1f8;
+	padding-top: 20px;
+	padding-left: 20px;
+	padding-bottom: 20px;
+	border-bottom: 2px solid #e4e7ee;
+	color: #3f435e;
+}
+
+.head_content h1{
+	font-size: 28px;
+}
+
+.head_content ul li{
+	display: inline-block;
+	margin-right: 20px;
+}
+
+.head_content ul li a{
+	color: #73818e;
+	text-decoration: none;
+}
+
+.head_content ul li a:hover{
+	border-bottom: 1px dotted #95b6d5;
+}
+
+.head_content .select_category{
+	color: white !important;
+	background-color: #95b6d5;
+	padding: 5px;
+	padding-left: 10px;
+	padding-right: 10px;
+	border-radius: 7px;
+}
+
+.head_content .select_category:hover{
+	border:none;
+}
+
+.search_box{
+	float: right;
+	height: 20px;
+	border-radius: 7px;
+	padding: 5px;
+	width: 300px;
+	border: 1px solid #d1d4d9;
+	margin-right: 20px;
+	margin-top: -25px;
+	background-image: url("../imgs/search.png");
+	background-size: contain;
+	background-position: right;
+	background-repeat: no-repeat;
 }
