@@ -2,241 +2,66 @@
 <html>
 <head>
     <meta charset="utf-8">
-     <title>Advanced</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
+     <title>Library</title>
+    <link rel="stylesheet" type="text/css" href="styles/style.css">
 </head>
 <body>
-<section id="task4">
-		<h1>Task 4</h1>
-		<ul class="dropdown">
-		 <li class="dropdown-top">
-		 <input type="checkbox" id="toggle">
-		 <label for="toggle">Top menu</label>
-
-		 <ul class="dropdown-inside">
-		 <li><a href="#">Menu 1</a></li>
-		 <li><a href="#">Menu 2</a></li>
-		 <li><a href="#">Menu 3</a></li>
-		 <li><a href="#">Menu 4</a></li>
-		 <li><a href="#">Menu 5</a></li>
-		 </ul>
-		 </li>
-		</ul>
-	</section>
-
-	<section id="task1">
-		<h1>Task 1</h1>
-		<div class="container">
-		<div class="top">Header</div>
-		<div class="arrow"></div>
-		<div class="text">Lorem ipsum dolor sit amet, 
-		consectetur adipisicing elit. Praesentium soluta,
-		 enim assumenda nemo ullam ab cupiditate animi expedita est
-		 a quisquam quae nulla natus at inventore veniam, illo, vel debitis.</div>
-		</div>
-	</section>
-	
-	<section id="task2">
-		<h1>Task 2</h1>
-		<div class="arrow-box">Lorem ipsum dolor sit amet, 
-		consectetur adipisicing elit. Praesentium soluta,
-		 enim assumenda nemo ullam ab cupiditate animi expedita est
-		 a quisquam quae nulla natus at inventore veniam, illo, vel debitis.</div>
-	</section>
-	
-	<section id="task3">
-		<h1>Task 3</h1>
-		<div class="caption">Caption</div>
-		<div class="text">Lorem ipsum dolor sit amet, 
-		consectetur adipisicing elit. Praesentium soluta,
-		 enim assumenda nemo ullam ab cupiditate animi expedita est
-		 a quisquam quae nulla natus at inventore veniam, illo, vel debitis.</div>
-	</section>
-	
-	<section id="task5">
-		<h1>Task 5</h1>
+	<div id="header">
 		<div id="top_menu">
-		<div class="left">
-			<div class="messages menu">
-				<div class="msg_pic"></div>
-				<div class="count">2</div>
+			<div class="top_profile">
+				<div class="avatar"></div>
+				<a href="#">Igor Fedyukin</a>
+				<div class="top_arrow"></div>
 			</div>
-			<div class="news menu">
-				<div class="news_pic"></div>			
-				<div class="count">223960</div>
-			</div>
-			<div class="profile menu">
-				<div class="profile_pic"></div>	
-				<div class="count">!</div>
-			</div>
-			<div class="flag menu">
-				<div class="flag_pic"></div>	
-			</div>
-			<div class="todolist menu">
-				<div class="todolist_pic"></div>	
+			<div class="top_item">
+				<a href="#">Help Center</a>
+				<span> &bull; </span>
+				<a href="#">Our Support</a>
 			</div>
 		</div>
-		<div class="right">
-			<div class="refresh menu">
-				<div class="refresh_pic"></div>
+	</div>
+	<div id="sidebar">
+		<div class="side">
+			<a href="#" class="add_book">
+				<span class="plus">+</span>
+				ADD A BOOK
+			</a>
+		</div>
+		<div class="side side_menu">
+			<a href="#"><div class="reading_pic menu_pic"></div>Now Reading</a>
+			<a class="select_item" href="#"><div class="browse_pic menu_pic"></div>Browse</a>
+			<a href="#"><div class="buy_pic menu_pic"></div>Buy Books</a>
+			<a href="#"><div class="favourite_pic menu_pic"></div>Favourite Books</a>
+			<a href="#"><div class="wishlist_pic menu_pic"></div>Wishlist</a>
+			<a href="#"><div class="history_pic menu_pic"></div>History</a>
+		</div>
+		<div class="side side_menu">
+			<ul>
+				<li class="red"><a href="#"><span>Must Read Titles</span></a></li>
+				<li class="yellow"><a href="#"><span>Best Of List</span></a></li>
+				<li class="blue"><a href="#"><span>Classic Novels</span></a></li>
+				<li class="purple"><a href="#"><span>Non Fiction</span></a></li>
+			</ul>
+		</div>
+		<div class="side side_menu noborder">
+			<div class="history_msg">
+				<div class="history_pic menu_pic"></div>
+				<div class="history_text"><p>You added <b>Fight Club</b> by <b>Chuck Palahniuk</b> to your <b>Must Read Titles</b></p><span>24 minutes ago</span></div>
 			</div>
-			<div class="sandw_menu menu">
-				<div class="menu_pic"></div>
-			</div>
-			<div class="logout menu"><p>Выход</p>
-				<div class="logout_pic"></div>
+			<div class="history_msg">
+				<div class="history_pic menu_pic"></div>
+				<div class="history_text"><p>You added <b>The Trial</b> by <b>Franz Kafka</b> to your <b>Must Read Titles</b></p><span>48 minutes ago</span></div>
 			</div>
 		</div>
-		</div>
-	</section>
-	
-	
-	<section id="task6">
-		<h1>Task 6</h1>
-		<div id="main_container">
-			<div class="block_container">
-				<h2>Container 1</h2>
-				<div class="element_container">
-					<div class="pic_container"></div>
-					<div class="buttons_container">
-						<button>Button 1</button>
-						<button>Button 2</button>
-					</div>
-				</div>
-				
-				<div class="element_container">
-					<div class="pic_container"></div>
-					<div class="buttons_container">
-						<button>Button 1</button>
-						<button>Button 2</button>
-					</div>
-				</div>
-				<div class="element_container">
-					<div class="pic_container"></div>
-					<div class="buttons_container">
-						<button>Button 1</button>
-						<button>Button 2</button>
-					</div>
-				</div>
-				<div class="element_container">
-					<div class="pic_container"></div>
-					<div class="buttons_container">
-						<button>Button 1</button>
-						<button>Button 2</button>
-					</div>
-				</div>
-				<div class="element_container">
-					<div class="pic_container"></div>
-					<div class="buttons_container">
-						<button>Button 1</button>
-						<button>Button 2</button>
-					</div>
-				</div>
-				<div class="element_container">
-					<div class="pic_container"></div>
-					<div class="buttons_container">
-						<button>Button 1</button>
-						<button>Button 2</button>
-					</div>
-				</div>
-				<div class="element_container">
-					<div class="pic_container"></div>
-					<div class="buttons_container">
-						<button>Button 1</button>
-						<button>Button 2</button>
-					</div>
-				</div>
-				<div class="element_container">
-					<div class="pic_container"></div>
-					<div class="buttons_container">
-						<button>Button 1</button>
-						<button>Button 2</button>
-					</div>
-				</div>
-			</div>
-			<div class="block_container">
-				<h2>Container 2</h2>
-				
-				<div class="element_container">
-					<div class="pic_container"></div>
-					<div class="buttons_container">
-						<button>Button 1</button>
-						<button>Button 2</button>
-					</div>
-				</div>
-				<div class="element_container">
-					<div class="pic_container"></div>
-					<div class="buttons_container">
-						<button>Button 1</button>
-						<button>Button 2</button>
-					</div>
-				</div>
-				<div class="element_container">
-					<div class="pic_container"></div>
-					<div class="buttons_container">
-						<button>Button 1</button>
-						<button>Button 2</button>
-					</div>
-				</div>
-				<div class="element_container">
-					<div class="pic_container"></div>
-					<div class="buttons_container">
-						<button>Button 1</button>
-						<button>Button 2</button>
-					</div>
-				</div>
-				<div class="element_container">
-					<div class="pic_container"></div>
-					<div class="buttons_container">
-						<button>Button 1</button>
-						<button>Button 2</button>
-					</div>
-				</div>
-				<div class="element_container">
-					<div class="pic_container"></div>
-					<div class="buttons_container">
-						<button>Button 1</button>
-						<button>Button 2</button>
-					</div>
-				</div>
-				<div class="element_container">
-					<div class="pic_container"></div>
-					<div class="buttons_container">
-						<button>Button 1</button>
-						<button>Button 2</button>
-					</div>
-				</div>
-				<div class="element_container">
-					<div class="pic_container"></div>
-					<div class="buttons_container">
-						<button>Button 1</button>
-						<button>Button 2</button>
-					</div>
-				</div>
-				<div class="element_container">
-					<div class="pic_container"></div>
-					<div class="buttons_container">
-						<button>Button 1</button>
-						<button>Button 2</button>
-					</div>
-				</div>
-				<div class="element_container">
-					<div class="pic_container"></div>
-					<div class="buttons_container">
-						<button>Button 1</button>
-						<button>Button 2</button>
-					</div>
-				</div>
-				<div class="element_container">
-					<div class="pic_container"></div>
-					<div class="buttons_container">
-						<button>Button 1</button>
-						<button>Button 2</button>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-	
+	</div>
+	<div id="content">
+		<div></div>
+		<div></div>
+		<div></div>
+	</div>
+	<div id="footer">
+		<a id="settings_button"><div></div></a>
+		<a id="help_button"><div></div></a>
+	</div>
 </body>
 </html>

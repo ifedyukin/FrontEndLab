@@ -1,0 +1,274 @@
+@import "reset.css";
+
+body{
+	overflow-y: hidden;
+}
+
+#top_menu{
+	top: 0;
+	min-width: 400px;
+	width: 100%;
+	height: 50px;
+	background-color: #2f3649;
+}
+
+.top_item{
+	float: right;
+	color: #1B2235;
+	padding: 15px;
+}
+
+.top_item a{
+	font-size: 18px;
+	text-decoration: none;
+	color: #b5b9c4;
+}
+
+.top_item a:hover{
+	border-bottom: 1px dotted #b5b9c4;
+}
+
+.top_profile{
+	color: white;
+	float: right;
+	background-color: #16A3F9;
+	height: 100%;
+	float: right;
+}
+
+.top_profile a{
+	float: left;
+	text-decoration: none;
+	color: inherit;
+	margin-top: 17px;
+}
+
+.top_profile a:hover{
+	border-bottom: 1px dotted white;
+}
+
+.avatar{
+	border: 1px solid white;
+	float: left;
+	width: 30px;
+	height: 30px;
+	margin-top: 10px;
+	margin-left: 10px;
+	margin-right: 10px;
+	border-radius: 100px;
+	background-color: black;
+	background-image: url("../imgs/avatar.jpg");
+	background-size: contain;
+}
+
+.top_arrow{
+	cursor: pointer;
+	height: 12px;
+	width: 12px;
+	float: right;
+	margin-right: 10px;
+	margin-top: 20px;
+	margin-left: 10px;
+	background-image: url("../imgs/arrow.png");
+	background-size: contain;
+}
+
+#sidebar{
+	left: 0;
+	position: absolute;
+	background-color: #1f2638;
+	width: 220px;
+	height: 100%;
+}
+
+.side{
+	border-bottom: 5px solid #1b1d2a;
+	padding-top: 40px;
+	padding-bottom: 40px;
+	width: 100%;
+}
+
+.add_book{
+	background-color: #ef7d58;
+	border-radius: 5px;
+	margin-left: 35px;
+	color: white;
+	font-weight: bold;
+	padding: 10px;
+	padding-left: 35px;
+	width: 135px;
+	text-decoration: none;
+}
+
+.plus{
+	font-weight: bold;
+    font-size: 35px;
+    margin-right: 10px;
+    margin-top: -10px;
+    margin-left: -27px;
+    position: absolute;
+}
+
+.side_menu{
+	padding-top: 10px;
+	padding-bottom: 20px;
+}
+
+.side_menu a{
+	text-decoration: none;
+	color: #b5b9c4;
+	width: 90%;
+	display: block;
+	padding: 10px;
+}
+
+.side_menu a:hover{
+	text-decoration: underline;
+}
+
+.menu_pic{
+	float: left;
+	margin-right: 20px;
+	margin-left: 10px;
+	width: 20px;
+	height: 20px; 
+}
+
+.reading_pic{     
+	background-image: url("../imgs/book.png");
+	background-size: contain;
+}
+
+.buy_pic{     
+	background-image: url("../imgs/buy.png");
+	background-size: contain;
+}
+
+.browse_pic{     
+	background-image: url("../imgs/browse.png");
+	background-size: contain;
+}
+
+.favourite_pic{     
+	background-image: url("../imgs/fav.png");
+	background-size: contain;
+}
+
+.wishlist_pic{     
+	background-image: url("../imgs/wishlist.png");
+	background-size: contain;
+}
+
+.history_pic{     
+	background-image: url("../imgs/history.png");
+	background-size: contain;
+}
+
+.select_item{
+	color: white !important;
+	background-color: #16A3F9;
+}
+
+.select_item:hover{
+	text-decoration: none !important;
+}
+
+.select_item .menu_pic{
+	-webkit-filter: contrast(200%);
+	-o-filter: contrast(200%);
+	-moz-filter: contrast(200%);
+	-ms-filter: contrast(200%);
+	filter: contrast(200%);
+}
+
+.side_menu li {
+	cursor: pointer;
+	margin-left: 43px;
+	list-style-type: disc;
+}
+
+li.red{
+	color: #ff517e;
+}
+
+li.yellow{
+	color: #ffb700;
+}
+
+li.blue{
+	color: #03bedf;
+}
+
+li.purple{
+	color: #847ede;
+}
+
+.side_menu li span {
+	color: #b5b9c4;
+}
+
+.history_msg{
+	color: #b5b9c4;
+	padding: 10px;
+	font-size: 14px;
+}
+
+.history_text{
+	margin-top: -5px;
+	font-size: 12px;
+	line-height: 1.2;
+	margin-left: 50px;
+}
+
+.noborder{
+	border: none;
+}
+
+.history_text span{
+	font-family: monospace;
+}
+
+#footer{
+	position: absolute;
+	bottom: 0;
+	min-width: 400px;
+	width: 100%;
+	height: 50px;
+	background-color: #2f3649;
+}
+
+#footer a{
+	float: right;
+	width: 70px;
+	height: 100%;
+	display: block;
+	cursor: pointer;
+}
+
+a#help_button{
+	background-position: center;
+	background-color: #1f2638;	
+}
+
+a#settings_button{
+	background-position: center;
+	background-color: #16A3F9;
+}
+
+a#help_button div{
+	background-image: url("../imgs/help.png");
+	background-size: contain;
+	width: 20px;
+	height: 20px;
+	margin-left: 25px;
+	margin-top: 15px;
+}
+
+a#settings_button div{
+	background-image: url("../imgs/settings.png");
+	background-size: contain;
+	width: 20px;
+	height: 20px;
+	margin-left: 25px;
+	margin-top: 15px;
+}
