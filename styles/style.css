@@ -14,13 +14,15 @@ body{
 
 .top_item{
 	float: right;
-	color: #1B2235;
+	color: #1b2235;
 	padding: 15px;
 }
 
 .top_item a{
 	font-size: 18px;
 	text-decoration: none;
+	margin-left: 5px;
+	margin-right: 5px;
 	color: #b5b9c4;
 }
 
@@ -74,6 +76,7 @@ body{
 }
 
 #sidebar{
+	overflow-y: auto;
 	left: 0;
 	position: absolute;
 	background-color: #1f2638;
@@ -218,10 +221,16 @@ li.purple{
 	font-size: 12px;
 	line-height: 1.2;
 	margin-left: 50px;
+	margin-bottom: 20px;
 }
 
 .noborder{
 	border: none;
+	padding-bottom: 100px;
+}
+
+.history_text p{
+	margin-bottom: 7px;
 }
 
 .history_text span{
@@ -229,7 +238,7 @@ li.purple{
 }
 
 #footer{
-	position: absolute;
+	position: fixed;
 	bottom: 0;
 	min-width: 400px;
 	width: 100%;
