@@ -1,0 +1,38 @@
+@import "reset.css";
+
+
+table{
+	border-spacing: 5px;
+	color: #758697;
+}
+
+th{
+	text-align: center;
+	background-color: #e3eaf3;
+	padding: 7px;
+	text-transform: uppercase;
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: bold;
+}
+
+td{
+	padding: 15px;
+	color: #7c96ac;
+}
+
+tr{
+	background-color: #e8edf4;
+}
+
+td:first-child{
+	text-transform: capitalize;
+}
+
+tr:nth-of-type(2n){
+	background-color: #f2f6fa;
+}
+
+tr:hover{
+	cursor: pointer;
+	background-color: #e2e5e9;
+}
