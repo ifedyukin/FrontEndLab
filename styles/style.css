@@ -76,6 +76,7 @@ body{
 }
 
 #sidebar{
+	font-size: 12px;
 	overflow-y: auto;
 	overflow-x: hidden;
 	top: 50px;
@@ -237,6 +238,11 @@ li.purple{
 
 .history_text span{
 	font-family: monospace;
+}
+
+#footer:before{
+	content: "";
+	clear: both;
 }
 
 #footer{
