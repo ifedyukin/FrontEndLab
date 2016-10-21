@@ -300,11 +300,33 @@ ul.dropdown li { position: relative; }
 	width: 155px;
 }
 
-.element_container{
+.block_container_float .element_container{
 	margin-top: 25px;
 	float: left;
 	margin-left: 25px;
 	border: 1px solid black;
+}
+
+.block_container_inline{
+	margin-top: 150px;
+	clear: left;
+	width: 100%;
+}
+
+.block_container_inline .element_container{
+	margin-left: 25px;
+	border: 1px solid black;
+	width: 155px;
+	display: inline-block;
+	margin-top: 20px;
+}
+
+.block_container_flex .element_container{
+	margin-left: 25px;
+	border: 1px solid black;
+	width: 155px;
+	display: flex;
+	margin-top: 20px;
 }
 
 .block_container{
