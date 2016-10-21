@@ -298,6 +298,7 @@ ul.dropdown li { position: relative; }
 	width: 155px;
 }
 
+/*FLOAT*/
 .block_container_float .element_container{
 	margin-top: 25px;
 	float: left;
@@ -305,6 +306,7 @@ ul.dropdown li { position: relative; }
 	border: 1px solid black;
 }
 
+/*INLINE*/
 .block_container_inline{
 	margin-top: 150px;
 	clear: left;
@@ -319,6 +321,7 @@ ul.dropdown li { position: relative; }
 	margin-top: 20px;
 }
 
+/*FLEX*/
 .block_container_flex .element_container{
 	margin-left: 25px;
 	border: 1px solid black;
