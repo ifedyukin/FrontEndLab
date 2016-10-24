@@ -17,16 +17,19 @@ section{
 #task1 .top{
   font-weight: bold;
   padding: 10px;
+  padding-bottom: 25px;
   background-color: #ffcf00;
   width: 98%+5px;
 }
 
-#task1 .arrow{
+#task1 .top:before{
+	content: "";
 	border: 10px solid transparent;
 	border-top: 13px solid #ffcf00;
 	width: 0px;
-	position: relative;
+	position: absolute;
 	margin-left: 10px;
+	margin-top: 20px;
 }
 
 #task1 .text{
@@ -70,26 +73,25 @@ section{
 }
 
 #task3 .caption{
+  box-shadow: 0 0 21px 10px black;
 	background-color: #a68bdd;
 	width: 70px;
 	padding: 5px;
 	text-align: center;
-	border: 3px solid #9081ce;
-	border: 3px 3px 0 0;
 	border-radius: 10px 10px 0 0;
-	z-index: 5;
+	z-index: -5;
 	position: absolute;
-	margin-top: -30px;
+	margin-top: -31px;
 }
 
 
 #task3 .text{
+  box-shadow: 0 0 21px 2px black;
 	z-index: 1;
 	height: 250px;
 	padding: 10px;
 	width: 500px;
 	background-color: #a68bdd;
-	border: 3px solid #ada7bb;
 	border-radius: 0 10px 10px 10px;
 }
 
@@ -304,11 +306,11 @@ ul.dropdown li { position: relative; }
 	float: left;
 	margin-left: 25px;
 	border: 1px solid black;
+	width: 160px;
 }
 
 /*INLINE*/
 .block_container_inline{
-	margin-top: 150px;
 	clear: left;
 	width: 100%;
 }
@@ -322,14 +324,19 @@ ul.dropdown li { position: relative; }
 }
 
 /*FLEX*/
+.block_container_flex{
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	align-items: flex-start;
+}
+
 .block_container_flex .element_container{
 	margin-left: 25px;
 	border: 1px solid black;
 	width: 155px;
-	display: inline-flex;
-	margin-top: 20px;
+	margin-top: 25px;
 	flex-direction: column;
-	align-items: flex-start;
 }
 
 .block_container{
@@ -341,9 +348,13 @@ ul.dropdown li { position: relative; }
 	margin-left: 12px;
 	margin-bottom: 10px;
 	float: 5px;
+	width: 70%;
 }
 
 .block_container h2{
 	padding-top: 50px;
 }
  
+.clear{
+	clear: both;
+}
