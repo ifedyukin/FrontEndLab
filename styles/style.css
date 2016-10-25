@@ -303,10 +303,17 @@ a#settings_button div{
 }
 
 #books{
+	max-height: 100%;
 	display: flex;
 	flex-wrap: wrap;
 	flex-direction: row;
 	clear: both;
+}
+
+#books:after{
+	clear: both;
+	content: "";
+	display: block;
 }
 
 .head_content{
@@ -369,8 +376,8 @@ a#settings_button div{
 	margin-top: 25px;
 	margin-left: 20px;
 	padding: 10px;
-	float: left;
 	margin-bottom: 50px;
+	clear: both;
 }
 
 .book_pic img{
