@@ -4,6 +4,24 @@ body{
 	min-width: 1010px;
 }
 
+body::-webkit-scrollbar{
+	width: 5px; height: 3px;
+}
+
+body::-webkit-scrollbar-thumb{
+	background-color: #ef7d58;
+	border-radius: 100px;
+}
+
+sidebar::-webkit-scrollbar{
+	width: 5px; height: 3px;
+}
+
+sidebar::-webkit-scrollbar-thumb{
+	background-color: #ef7d58;
+	border-radius: 100px;
+}
+
 header{
 	position: fixed;
 	top: 0;
@@ -409,38 +427,35 @@ a#settings_button div{
 	content: "by ";
 }
 
-.book_stars{
+.stars{
 	margin-top: 7px;
 }
 
-.star0{
+.stars:after{
+	clear: both;
+	content: "";
+	display: block;
+}
+
+.stars__star{
 	float: left;
 	width: 15px;
 	height: 15px;
+	background-size: contain;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.stars__star--zero{
 	background-image: url("../imgs/star0.png");
-	background-size: contain;
-	background-position: center;
-	background-repeat: no-repeat;
 }
 
-.star1{
-	float: left;
-	width: 15px;
-	height: 15px;
+.stars__star--half{
 	background-image: url("../imgs/star1.png");
-	background-size: contain;
-	background-position: center;
-	background-repeat: no-repeat;
 }
 
-.star2{
-	float: left;
-	width: 15px;
-	height: 15px;
+.stars__star--full{
 	background-image: url("../imgs/star2.png");
-	background-size: contain;
-	background-position: center;
-	background-repeat: no-repeat;
 }
 
 .clearfix{
