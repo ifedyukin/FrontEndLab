@@ -87,10 +87,9 @@ function mostFreq(value){ //6
 
 function clone(value){ //7
 	if (isArray(value)){
-		n = value.length;
-		for (var i = 0; i < n; i++)
-			value[i+n]=value[i];
-		return value;
+		var cloned;
+		cloned = value.slice();
+		return cloned;
 	}
 	else
 		console.warn('Function argument isn\'t array!');
