@@ -428,7 +428,12 @@ a#settings_button div{
 }
 
 .stars{
+	width: 75px;
 	margin-top: 7px;
+	-moz-transform: scaleX(-1);
+	-o-transform: scaleX(-1);
+	-webkit-transform: scaleX(-1);
+	transform: scaleX(-1);
 }
 
 .stars:after{
@@ -460,4 +465,11 @@ a#settings_button div{
 
 .clearfix{
 	clear: both;
+}
+
+.stars__star:hover{
+	background-image: url("../imgs/h_star.png");}
+
+.stars__star:hover ~ .stars__star{
+	background-image: url("../imgs/h_star.png");
 }
