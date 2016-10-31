@@ -1,14 +1,7 @@
 function largestInt(a, b) {
 	console.warn('%c[Задание 1]\n', 'background: black; color: white');
 	console.info("Введены числа: " + a + " и " + b);
-	var large;
-	if (a >= b) {
-		large = a;
-	}
-	else {
-		large = b;
-	}
-	return large;
+	return a >= b  ? q : b;
 }
 
 function odd(number) {
