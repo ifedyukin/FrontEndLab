@@ -1,36 +1,32 @@
 'use strict';
 
-class calculator {
+var Calculator = {
 
-  constructor() {
-    this.result = 0;
-  }
+  result: 0,
 
-  add(value){
+  add: function(value){
   	return this.result+=value;
-  }
+  },
 
-  subtract(value){
+  subtract: function(value){
   	return this.result-=value;
-  }
+  },
 
-  devide(value){
+  devide: function(value){
   	return this.result/=value;
-  }
+  },
 
-  multiply(value){
+  multiply: function(value){
   	return this.result*=value;
-  }
+  },
 
-  getResult(){
+  getResult: function(){
   	return this.result;
-  }
+  },
 
-  reset(){
+  reset: function(){
   	this.result = 0;
   	return this.result;
   }
 
-}
-
-var Calculator = new calculator();
+};
