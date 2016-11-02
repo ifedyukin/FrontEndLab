@@ -1,32 +1,37 @@
-'use strict';
+(function () {
+  'use strict';
 
-var Calculator = {
+  var result = 0;
 
-  result: 0,
+  var calculator = {
 
-  add: function(value){
-  	return this.result+=value;
-  },
+    add: function add(value) {
+      result += value;
+      return add;
+    },
 
-  subtract: function(value){
-  	return this.result-=value;
-  },
+    subtract: function subtract(value) {
+      result -= value;
+      return subtract;
+    },
 
-  devide: function(value){
-  	return this.result/=value;
-  },
+    divide: function divide(value) {
+      result /= value;
+      return divide;
+    },
 
-  multiply: function(value){
-  	return this.result*=value;
-  },
+    multiply: function multiply(value) {
+      result *= value;
+      return multiply;
+    },
 
-  getResult: function(){
-  	return this.result;
-  },
+    getResult: function () {
+      return result;
+    },
 
-  reset: function(){
-  	this.result = 0;
-  	return this.result;
-  }
+    reset: function () {
+      return result = 0;
+    }
+  };
 
-};
+} ());
