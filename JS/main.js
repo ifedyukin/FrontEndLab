@@ -12,68 +12,64 @@ var Utils = (function () {
 } ());
 
 //Модуль с калькулятором
-var Calculator = (function (Utils) {
-  'use strict';
+var Calculator = (function () {
+  var Tools = {
 
-  var result = 0;
+    result: 0,
 
-  function add(value) {
-    if (Utils.isNumber(value)) {
-      result += value;
-      return add;
-    } else {
-      throw new Error('Function argument isn\'t number!');
+    add: function add(value) {
+      if (Utils.isNumber(value)) {
+        this.result += value;
+        return this;
+      } else {
+        throw new Error('Function argument isn\'t number!');
+      }
+    },
+
+    subtract: function subtract(value) {
+      if (Utils.isNumber(value)) {
+        this.result -= value;
+        return this;
+      } else {
+        throw new Error('Function argument isn\'t number!');
+      }
+    },
+
+    divide: function divide(value) {
+      if (Utils.isNumber(value)) {
+        this.result /= value;
+        return this;
+      } else {
+        throw new Error('Function argument isn\'t number!');
+      }
+    },
+
+    multiply: function multiply(value) {
+      if (Utils.isNumber(value)) {
+        this.result *= value;
+        return this;
+      } else {
+        throw new Error('Function argument isn\'t number!');
+      }
+    },
+
+    getResult: function getResult() {
+      return this.result;
+    },
+
+    reset: function reset() {
+      this.result = 0;
+      return this;
     }
-  }
 
-  function subtract(value) {
-    if (Utils.isNumber(value)) {
-      result -= value;
-      return subtract;
-    } else {
-      throw new Error('Function argument isn\'t number!');
-    }
   }
-
-  function divide(value) {
-    if (Utils.isNumber(value)) {
-      result /= value;
-      return divide;
-    } else {
-      throw new Error('Function argument isn\'t number!');
-    }
-  }
-
-  function multiply(value) {
-    if (Utils.isNumber(value)) {
-      result *= value;
-      return multiply;
-    } else {
-      throw new Error('Function argument isn\'t number!');
-    }
-  }
-
-  function getResult() {
-    return result;
-  }
-
-  function reset() {
-    return result = 0;
-  }
-
   return {
-    add: add,
-    subtract: subtract,
-    divide: divide,
-    multiply: multiply,
-    getResult: getResult,
-    reset: reset
-  }
-
-} (Utils));
-
-Calculator.add(3)(2)(1);  //6
-Calculator.subtract(2);   //4
-Calculator.divide(2);     //2
-Calculator.multiply(3);   //6
-console.log(Calculator.getResult());
+    result: Tools.result,
+    add: Tools.add,
+    subtract: Tools.subtract,
+    divide: Tools.divide,
+    multiply: Tools.multiply,
+    getResult: Tools.getResult,
+    reset: Tools.reset
+  };
+} ())
