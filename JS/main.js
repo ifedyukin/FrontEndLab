@@ -13,6 +13,7 @@ var Utils = (function () {
 
 //Модуль с калькулятором
 var Calculator = (function () {
+
   var Tools = {
 
     result: 0,
@@ -60,9 +61,21 @@ var Calculator = (function () {
     reset: function reset() {
       this.result = 0;
       return this;
+    },
+
+    callback: function callback() {
+      this.result = 5;
+      console.info("OK");
+    },
+
+    getInitialState: function getInitialState(callback) {
+      setTimeout(function () {
+        callback.bind(this)();
+      }.bind(this), 5000);
     }
 
-  }
+  };
+
   return {
     result: Tools.result,
     add: Tools.add,
@@ -70,6 +83,8 @@ var Calculator = (function () {
     divide: Tools.divide,
     multiply: Tools.multiply,
     getResult: Tools.getResult,
-    reset: Tools.reset
+    reset: Tools.reset,
+    callback: Tools.callback,
+    getInitialState: Tools.getInitialState
   };
 } ())
