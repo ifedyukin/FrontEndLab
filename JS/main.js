@@ -63,12 +63,13 @@ var Calculator = (function () {
       return this;
     },
 
-    callback: function callback() {
+    server: function server() {
       this.result = 5;
       console.info("OK");
     },
 
     getInitialState: function getInitialState(callback) {
+      callback = callback || Tools.server;
       setTimeout(function () {
         callback.bind(this)();
       }.bind(this), 5000);
@@ -84,7 +85,6 @@ var Calculator = (function () {
     multiply: Tools.multiply,
     getResult: Tools.getResult,
     reset: Tools.reset,
-    callback: Tools.callback,
     getInitialState: Tools.getInitialState
   };
 } ())
