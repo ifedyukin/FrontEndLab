@@ -1,17 +1,14 @@
 'use strict';
 
 function isString(value) {
-	if (typeof (value) == 'string')
-		return true;
-	else
-		return false;
+	return (typeof (value) == 'string');
 }
 
 function canParseToNumber(value) {
 	if (isString(value)) {
-		return (isNaN(parseInt(value))) ? false : true;
+		return (!(isNaN(parseInt(value))));
 	} else {
-		console.warn('Function argument isn\'t string!');
+		throw new Error('Function argument isn\'t string!');
 	}
 }
 
@@ -19,7 +16,7 @@ function getStringLength(value) {
 	if (isString(value)) {
 		return value.length;
 	} else {
-		console.warn('Function argument isn\'t string!');
+		throw new Error('Function argument isn\'t string!');
 	}
 }
 
@@ -36,7 +33,7 @@ function camelize(value) {
 			}
 		return value.join('');
 	} else {
-		console.warn('Function argument isn\'t string!');
+		throw new Error('Function argument isn\'t string!');
 	}
 }
 
@@ -46,7 +43,7 @@ function capitalize(value) {
 		value[0] = value[0].toUpperCase();
 		return value.join('');
 	} else {
-		console.warn('Function argument isn\'t string!');
+		throw new Error('Function argument isn\'t string!');
 	}
 }
 
@@ -65,6 +62,6 @@ function findOccurrences(sub, string) {
 		}
 		return n;
 	} else {
-		console.warn('Function argument isn\'t string!');
+		throw new Error('Function argument isn\'t string!');
 	}
 }

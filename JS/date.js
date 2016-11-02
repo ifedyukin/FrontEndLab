@@ -4,15 +4,17 @@ var date1 = new Date("9/30/2016");
 var date2 = new Date("10/12/2016");
 
 function difference(date1, date2) { //1
-	var diff = Math.abs(date2.getTime() - date1.getTime());
-	return diff;
+	return Math.abs(date2.getTime() - date1.getTime());
 }
 
 function current() { //2
 	var now = new Date();
-	var month = Number(now.getMonth()) + 1;
-	var current = now.getDate() + '-' + month + '-' + now.getFullYear() + ' ' + now.getHours() + ':' + now.getMinutes() + ':' + now.getSeconds();
-	return current;
+	return formatDate(now);
+}
+
+function formatDate(date) {
+	var month = Number(date.getMonth())+1;
+	return date.getDate() + '-' + month + '-' + date.getFullYear() + ' ' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds();
 }
 
 function getNow() { //3
