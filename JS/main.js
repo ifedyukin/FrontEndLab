@@ -13,78 +13,77 @@ var Utils = (function () {
 
 //Модуль с калькулятором
 var Calculator = (function () {
+  "use strict";
 
-  var Tools = {
+  var result = 0;
 
-    result: 0,
-
-    add: function add(value) {
-      if (Utils.isNumber(value)) {
-        this.result += value;
-        return this;
-      } else {
-        throw new Error('Function argument isn\'t number!');
-      }
-    },
-
-    subtract: function subtract(value) {
-      if (Utils.isNumber(value)) {
-        this.result -= value;
-        return this;
-      } else {
-        throw new Error('Function argument isn\'t number!');
-      }
-    },
-
-    divide: function divide(value) {
-      if (Utils.isNumber(value)) {
-        this.result /= value;
-        return this;
-      } else {
-        throw new Error('Function argument isn\'t number!');
-      }
-    },
-
-    multiply: function multiply(value) {
-      if (Utils.isNumber(value)) {
-        this.result *= value;
-        return this;
-      } else {
-        throw new Error('Function argument isn\'t number!');
-      }
-    },
-
-    getResult: function getResult() {
-      return this.result;
-    },
-
-    reset: function reset() {
-      this.result = 0;
+  function add(value) {
+    if (Utils.isNumber(value)) {
+      this.result += value;
       return this;
-    },
-
-    server: function server() {
-      this.result = 5;
-      console.info("OK");
-    },
-
-    getInitialState: function getInitialState(callback) {
-      callback = callback || Tools.server;
-      setTimeout(function () {
-        callback.bind(this)();
-      }.bind(this), 5000);
+    } else {
+      throw new Error('Function argument isn\'t number!');
     }
+  }
 
-  };
+  function subtract(value) {
+    if (Utils.isNumber(value)) {
+      this.result -= value;
+      return this;
+    } else {
+      throw new Error('Function argument isn\'t number!');
+    }
+  }
+
+  function divide(value) {
+    if (Utils.isNumber(value)) {
+      this.result /= value;
+      return this;
+    } else {
+      throw new Error('Function argument isn\'t number!');
+    }
+  }
+
+  function multiply(value) {
+    if (Utils.isNumber(value)) {
+      this.result *= value;
+      return this;
+    } else {
+      throw new Error('Function argument isn\'t number!');
+    }
+  }
+
+  function getResult() {
+    return this.result;
+  }
+
+  function reset() {
+    this.result = 0;
+    return this;
+  }
+
+  function server() {
+    this.result = 5;
+    console.info("Connection... OK!");
+  }
+
+  function getInitialState(callback) {
+    callback = callback || server;
+    var that = this;
+
+    setTimeout(function () {
+      callback.apply(that, arguments);
+    }, 500);
+  }
 
   return {
-    result: Tools.result,
-    add: Tools.add,
-    subtract: Tools.subtract,
-    divide: Tools.divide,
-    multiply: Tools.multiply,
-    getResult: Tools.getResult,
-    reset: Tools.reset,
-    getInitialState: Tools.getInitialState
+    result: result,
+    add: add,
+    subtract: subtract,
+    divide: divide,
+    multiply: multiply,
+    getResult: getResult,
+    reset: reset,
+    getInitialState: getInitialState
   };
 } ())
