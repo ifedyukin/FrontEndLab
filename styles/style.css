@@ -331,6 +331,12 @@ a#settings_button div{
 	clear: both;
 }
 
+#books h2{
+	color: #3f435e;
+	font-size: 24px;
+	margin: 25px;
+}
+
 #books:after{
 	clear: both;
 	content: "";
@@ -362,19 +368,6 @@ a#settings_button div{
 
 .head_content ul li a:hover{
 	border-bottom: 1px dotted #95b6d5;
-}
-
-.head_content .select_category{
-	color: white !important;
-	background-color: #95b6d5;
-	padding: 5px;
-	padding-left: 10px;
-	padding-right: 10px;
-	border-radius: 7px;
-}
-
-.head_content .select_category:hover{
-	border:none;
 }
 
 .search_box{

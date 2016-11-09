@@ -13,7 +13,7 @@
 			<div class="top_profile">
 				<div class="avatar"></div>
 				<a href="#">Igor Fedyukin</a>
-				<div class="top_arrow"></div>
+				<div id="top_arrow" class="top_arrow"></div>
 			</div>
 			<div class="top_item">
 				<a href="#">Help Center</a>
@@ -24,7 +24,7 @@
 	</header>
 	<sidebar>
 		<div class="side">
-			<a href="#" onclick="displayAddBlock()" class="add_book">
+			<a href="#" id="add_book_display_button" class="add_book">
 				<span class="plus">+</span> ADD A BOOK
 			</a>
 		</div>
@@ -50,17 +50,8 @@
 				<li class="purple"><a href="#"><span>Non Fiction</span></a></li>
 			</ul>
 		</div>
-		<div class="side side_menu noborder">
-			<div class="history_msg">
-				<div class="history_pic menu_pic"></div>
-				<div class="history_text">
-					<p>You added <b>Fight Club</b> by <b>Chuck Palahniuk</b> to your <b>Must Read Titles</b></p><span>24 minutes ago</span></div>
-			</div>
-			<div class="history_msg">
-				<div class="history_pic menu_pic"></div>
-				<div class="history_text">
-					<p>You added <b>The Trial</b> by <b>Franz Kafka</b> to your <b>Must Read Titles</b></p><span>48 minutes ago</span></div>
-			</div>
+		<div id="history_msgs" class="side side_menu noborder">
+
 		</div>
 	</sidebar>
 	<div id="content">
@@ -70,9 +61,9 @@
 			<form>
 				<label>Title<input type="text" id="add_book_title" name="title"></label>
 				<label id="add_image_label" class="upload_button">Load Image 
-					<input onchange="image_loaded();" type="file" id="add_book_image" name="image"></label><br>
+					<input type="file" id="add_book_image" name="image"></label><br>
 				<label>Author <input type="text" id="add_book_author" name="author"></label>
-				<a href="#" onclick="addBook()">Add Book</a>
+				<a href="#" id="add_book">Add Book</a>
 			</form>
 			<div id="loaded_image"></div>
 		</div>
@@ -82,12 +73,12 @@
 		</div>
 		<div class="head_content">
 			<ul>
-				<li><a class="select_category" href="">All Books</a></li>
+				<li><a id="categoryAll" href="#">All Books</a></li>
 				<li><a href="#">Most Recent</a></li>
-				<li><a href="#">Most Popular</a></li>
+				<li><a id="categoryPopular" href="#">Most Popular</a></li>
 				<li><a href="#">Free Books</a></li>
 			</ul>
-			<input class="search_box" placeholder="Enter Keywords" type="text">
+			<input id="search" class="search_box" placeholder="Enter Keywords" type="text">
 		</div>
 		<div id="books">
 		</div>
