@@ -6,6 +6,7 @@ body{
 
 body::-webkit-scrollbar{
 	width: 5px; height: 3px;
+	background-color: white;
 }
 
 body::-webkit-scrollbar-thumb{
@@ -23,6 +24,7 @@ sidebar::-webkit-scrollbar-thumb{
 }
 
 header{
+	z-index: 5;
 	position: fixed;
 	top: 0;
 	width: 100%;
@@ -94,6 +96,7 @@ header{
 }
 
 sidebar{
+	z-index: 5;
 	font-size: 12px;
 	overflow-y: auto;
 	overflow-x: hidden;
@@ -446,6 +449,7 @@ a#settings_button div{
 	float: left;
 	width: 15px;
 	height: 15px;
+	z-index: -1;
 	background-size: contain;
 	background-position: center;
 	background-repeat: no-repeat;
@@ -472,4 +476,101 @@ a#settings_button div{
 
 .stars__star:hover ~ .stars__star{
 	background-image: url("../imgs/h_star.png");
+}
+
+#add_block{
+	display: none;
+	z-index: 100;
+	height: 85px;
+	background-color: #eef1f8;
+	padding-top: 20px;
+	padding-left: 20px;
+	padding-bottom: 20px;
+	border-bottom: 2px solid #e4e7ee;
+	color: #3a3a4a;
+}
+
+#add_block input{
+	height: 20px;
+	border-radius: 7px;
+	padding: 5px;
+	width: 270px;
+	border: 1px solid #d1d4d9;
+	margin-right: 25px;
+}
+
+#add_block h2{
+	font-size: 28px;
+	color: #3f435e;
+}
+
+#add_block a{
+	display: inline-block;
+	background-color: #ef7d58;
+	border-radius: 5px;
+	border: none;
+	height: 10px;
+	margin-left: 35px;
+	font-size: 14px;
+	color: white;
+	font-weight: bold;
+	padding: 10px;
+	width: 125px;
+	text-decoration: none;
+	cursor: pointer;
+	text-align: center;
+}
+
+#add_block a:hover{
+	background-color: #16A3F9;
+}
+
+#add_block input[name="title"]{
+	margin-left: 27px;
+}
+
+#add_block input[name="author"]{
+	margin-left: 5px;
+}
+
+
+#add_block input[name="image"]{
+	display: none;
+}
+
+.upload_button{
+	cursor: pointer;
+	text-align: center;
+	display: inline-block;
+	background-color: #ef7d58;
+	border-radius: 5px;
+	border: none;
+	height: 10px;
+	margin-left: 35px;
+	color: white;
+	font-weight: bold;
+	padding: 10px;
+	width: 125px;
+	font-size: 14px;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+.upload_button:hover{
+	background-color: #16A3F9;
+}
+
+#add_book_image[value=""]{
+	background-color: black;
+}
+
+#loaded_image{
+	border-radius: 5px;
+	width: 80px;
+	height: 105px;
+	margin-top: -107px;
+	position: absolute;
+	margin-left: 590px;
+	display: none;
+	background-size: contain;
 }
