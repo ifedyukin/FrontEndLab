@@ -75,7 +75,7 @@ var DB = (function () {
 
 
 //Общие Функции
-var Common = (function (LibraryTools, HistoryTools) {
+var Common = (function () {
 
     "use strict";
 
@@ -87,31 +87,26 @@ var Common = (function (LibraryTools, HistoryTools) {
     var nowMonth;
     var nowYear;
 
-    //Отображение блока добавления
-    var onAddBlock = false;
-
     //Загружаемая фотография
-    var book_image;
+    var bookImage;
 
     //Отображение блока добавления
     function displayAddBlock() {
-        if (onAddBlock) {
-            document.getElementById("add_block").style = "display: none";
-            onAddBlock = false;
+        if (document.getElementById("add_block").style.display == "block") {
+            document.getElementById("add_block").style.display = "none";
         } else {
-            window.document.getElementById("add_block").style = "display: block";
-            onAddBlock = true;
+            window.document.getElementById("add_block").style.display = "block";
         }
     }
 
     //Загрузка фотографии
     function imageLoaded() {
         document.getElementById("add_image_label").style = "background-color: #16A3F9";
-        book_image = document.getElementById("add_book_image").value;
-        book_image = book_image.substring(12);
-        book_image = "books/" + book_image;
+        Common.bookImage = document.getElementById("add_book_image").value;
+        Common.bookImage = Common.bookImage.substring(12);
+        Common.bookImage = "books/" + Common.bookImage;
         document.getElementById("loaded_image").style = "background-image: url(\"" +
-            book_image + "\"); display: block;";
+            Common.bookImage + "\"); display: block;";
     }
 
     //Выбор категории
@@ -138,45 +133,29 @@ var Common = (function (LibraryTools, HistoryTools) {
     }
 
     //Пустая ли строка
-    function is_Blank(string) {
+    function isBlank(string) {
         string = string.replace(/\s{2,}/g, ' ');
         return (string != ' ' && string != '') ? true : false;
     }
 
-    //Обновление информации
-    function update() {
-        //Обновляем дату
-        updateDate();
-        //Перезагружаем библиотеку и историю
-        LibraryTools.loadLibrary();
-        HistoryTools.loadHistory();
-        //Очистка загруженного изображения
-        book_image = "";
-        document.getElementById("add_image_label").style = "";
-        document.getElementById("loaded_image").style = "";
-        //Перезагружаем блок добавления
-        onAddBlock = true;
-        displayAddBlock();
-        var title = document.getElementById("add_book_title").value = "";
-        var author = document.getElementById("add_book_author").value = "";
-    }
-    
+    updateDate();
 
     return {
         categoryClick: categoryClick,
         imageLoaded: imageLoaded,
         displayAddBlock: displayAddBlock,
-        is_Blank: is_Blank,
+        isBlank: isBlank,
         currentDate: {
-            nowDate: nowDate,
+            nowDay: nowDay,
             nowMonth: nowMonth,
             nowYear: nowYear,
-            nowHour,
-            nowMinutes
+            nowHour: nowHour,
+            nowMinutes: nowMinutes
         },
-        update: update
+        updateDate: updateDate,
+        bookImage: bookImage
     };
-} (LibraryTools, HistoryTools));
+} ());
 
 //Функции для работы с библиотекой
 var LibraryTools = (function (DB, Common) {
@@ -185,7 +164,7 @@ var LibraryTools = (function (DB, Common) {
 
     //Формируем код блока книги
     function createBookBlock(id, title, author, image, stars) {
-        var headCode = "<div class=\"book book_id" + id + "\">" +
+        var headCode = "<div class=\"book bookId" + id + "\">" +
             "<div class=\"book_pic\"><img src=\"books/" + image + "\" alt=\"cover\"></div>" +
             "<div class=\"book_title\">" + title + "</div>" +
             "<div class=\"book_author\">" + author + "</div>" +
@@ -194,12 +173,12 @@ var LibraryTools = (function (DB, Common) {
         var botCode = '';
         var count = 5;
         for (var i = 0; i < (5 - stars); i++) {
-            botCode += "<div onclick=\"js.star(" + count + "," +
+            botCode += "<div onclick=\"LibraryTools.star(" + count + "," +
                 id + ")\" class=\"stars__star stars__star--zero\"></div>";
             count--;
         }
         for (var i = 0; i < stars; i++) {
-            botCode += "<div onclick=\"js.star(" + count + "," +
+            botCode += "<div onclick=\"LibraryTools.star(" + count + "," +
                 id + ")\" class=\"stars__star stars__star--full\"></div>";
             count--;
         }
@@ -230,10 +209,10 @@ var LibraryTools = (function (DB, Common) {
         document.getElementById("books").innerHTML = "";
         var count = 0;
         var search = document.getElementById("search").value.toLowerCase();
-        for (var i = 0; i < Library.length; i++) {
+        for (var i = 0; i < DB.library.length; i++) {
+            var book = DB.library[i];
             var titleSearch = book["title"].toLowerCase().indexOf(search);
             var authorSearch = book["author"].toLowerCase().indexOf(search);
-            var book = Library[i];
             if (titleSearch != -1 || authorSearch != -1) {
                 createBookBlock(
                     book["id"],
@@ -255,38 +234,38 @@ var LibraryTools = (function (DB, Common) {
         id--;
         if (DB.library[id].stars != rating) {
             DB.library[id].stars = rating;
-            var history_id = DB.history.length + 1;
+            var historyId = DB.history.length + 1;
             DB.history.push({
-                id: history_id, text: "You rate  <b>" +
+                id: historyId, text: "You rate  <b>" +
                 DB.library[id].title + "</b> by <b>" +
                 DB.library[id].author + "</b> " + rating + " stars",
                 date: {
-                    day: nowDay,
-                    month: nowMonth,
-                    year: nowYear,
-                    hour: nowHour,
-                    minutes: nowMinutes
+                    day: Common.currentDate.nowDay,
+                    month: Common.currentDate.nowMonth,
+                    year: Common.currentDate.nowYear,
+                    hour: Common.currentDate.nowHour,
+                    minutes: Common.currentDate.nowMinutes
                 }
             });
-            update();
+            Main.update();
         }
     }
 
     //Только популярные
     function mostPopular() {
-        categoryClick("categoryPopular");
+        Common.categoryClick("categoryPopular");
         document.getElementById("books").innerHTML = "";
 
         var maxStar = 1;
-        for (var i = 0; i < Library.length; i++) {
-            var book = Library[i];
+        for (var i = 0; i < DB.library.length; i++) {
+            var book = DB.library[i];
             if (book["stars"] > maxStar) {
                 maxStar = book["stars"];
             }
         }
 
-        for (var i = 0; i < Library.length; i++) {
-            var book = Library[i];
+        for (var i = 0; i < DB.library.length; i++) {
+            var book = DB.library[i];
             if (book["stars"] == maxStar) {
                 createBookBlock(
                     book["id"],
@@ -304,33 +283,33 @@ var LibraryTools = (function (DB, Common) {
         var title = document.getElementById("add_book_title").value;
         var author = document.getElementById("add_book_author").value;
 
-        if (common.is_Blank(title) && common.is_Blank(author)) {
-            var book_id = Library.length + 1;
-            var history_id = History.length + 1;
-            if (book_image == "") {
-                book_image = "books/nocover.jpg";
+        if (Common.isBlank(title) && Common.isBlank(author)) {
+            var bookId = DB.library.length + 1;
+            var historyId = DB.history.length + 1;
+            if (Common.bookImage == "") {
+                Common.bookImage = "books/nocover.jpg";
             }
-            Library.push({
-                id: book_id,
+            DB.library.push({
+                id: bookId,
                 title: title,
                 author: author,
-                image: book_image.substring(6),
+                image: Common.bookImage.substring(6),
                 stars: 0
             });
-            History.push({
-                id: history_id, text: "You added <b>" +
+            DB.history.push({
+                id: historyId, text: "You added <b>" +
                 title + "</b> by <b>" + author + "</b> to your <b>Library</b>",
                 date: {
-                    day: nowDay,
-                    month: nowMonth,
-                    year: nowYear,
-                    hour: nowHour,
-                    minutes: nowMinutes
+                    day: Common.currentDate.nowDay,
+                    month: Common.currentDate.nowMonth,
+                    year: Common.currentDate.nowYear,
+                    hour: Common.currentDate.nowHour,
+                    minutes: Common.currentDate.nowMinutes
                 }
             });
-            displayAddBlock();
+            Common.displayAddBlock();
             alert("Book \"" + author + " - " + title + "\" has been added!");
-            update();
+            Main.update();
         } else {
             alert("Blank inputs!");
         }
@@ -339,24 +318,25 @@ var LibraryTools = (function (DB, Common) {
     return {
         loadLibrary: loadLibrary,
         search: search,
-        updateRating: updateRating,
+        star: updateRating,
         mostPopular: mostPopular,
         addBook: addBook
     };
 } (DB, Common));
 
 
-var HistoryTools = (function () {
+var HistoryTools = (function (Common, DB) {
 
     "use strict";
 
     //Генерируем строчку времени
     function generateTimeHistory(day, month, year, hour, minutes) {
-        var diffYear = nowYear - year;
-        var diffMonth = nowMonth - month;
-        var diffDay = nowDay - day;
-        var diffHour = nowHour - hour;
-        var diffMinutes = nowMinutes - minutes;
+        var diffYear = Common.currentDate.nowYear - year;
+        var diffMonth = Common.currentDate.nowMonth - month;
+        var diffDay = Common.currentDate.nowDay - day;
+        var diffHour = Common.currentDate.nowHour - hour;
+        var diffMinutes = Common.currentDate.nowMinutes - minutes;
+
 
         if (diffYear > 0) {
             return diffYear + " years";
@@ -395,8 +375,8 @@ var HistoryTools = (function () {
     //Загружаем историю
     function loadHistory() {
         document.getElementById("history_msgs").innerHTML = "";
-        for (var i = 0; i < History.length; i++) {
-            var msg = History[i];
+        for (var i = 0; i < DB.history.length; i++) {
+            var msg = DB.history[i];
             createHistoryBlock(
                 msg["id"],
                 msg["text"],
@@ -409,9 +389,9 @@ var HistoryTools = (function () {
         createHistoryBlock: createHistoryBlock,
         loadHistory: loadHistory
     };
-} ());
+} (Common, DB));
 
-var Events = (function (LibraryTools, Common) {
+var Events = (function (LibraryTools, Common, Main) {
 
     "use strict";
     //Обработчики событий
@@ -425,7 +405,7 @@ var Events = (function (LibraryTools, Common) {
         LibraryTools.search()
     };
     document.getElementById("top_arrow").onclick = function () {
-        Common.update()
+        Main.update()
     };
     document.getElementById("add_book_display_button").onclick = function () {
         Common.displayAddBlock()
@@ -441,3 +421,31 @@ var Events = (function (LibraryTools, Common) {
 
 
 
+//Главный модуль
+var Main = (function (Common, LibraryTools, HistoryTools) {
+
+    "use strict";
+
+    //Обновление информации
+    function update() {
+        //Обновляем дату
+        Common.updateDate();
+        //Перезагружаем библиотеку и историю
+        LibraryTools.loadLibrary();
+        HistoryTools.loadHistory();
+        //Очистка загруженного изображения
+        Common.bookImage = "";
+        document.getElementById("add_image_label").style = "";
+        document.getElementById("loaded_image").style = "";
+        //Перезагружаем блок добавления
+        document.getElementById("add_block").style = "display: none";
+        var title = document.getElementById("add_book_title").value = "";
+        var author = document.getElementById("add_book_author").value = "";
+    }
+
+    return {
+        update: update
+    };
+} (Common, LibraryTools, HistoryTools));
+
+Main.update();

@@ -2,6 +2,7 @@
 
 body{
 	min-width: 1010px;
+	overflow-y: scroll;
 }
 
 body::-webkit-scrollbar{
