@@ -1,5 +1,7 @@
 /*
     Переписать всё в модули
+
+    onClick => addEventList
 */
 
 
