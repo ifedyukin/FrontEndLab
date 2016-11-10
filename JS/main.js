@@ -1,47 +1,95 @@
-var js = (function () {
+/*
+    Переписать всё в модули
+*/
+
+
+//Данные
+var DB = (function () {
 
     "use strict";
 
-    /*################№№№№#########
-      ### Глобальные переменные ###
-      #############################*/
-
     //Библиотека
-    var Library = [
-        { id: 1, title: "Jewels of Nizam", author: "Geeta Devi", image: "JewelsOfNizam.jpg", stars: 5 },
-        { id: 2, title: "Cakes & Bakes", author: "Sanjeev Kapoor", image: "CakesAndBakes.jpg", stars: 5 },
-        { id: 3, title: "Jamie's Kitchen", author: "Jamie Oliver", image: "JamiesKitchen.jpg", stars: 4 },
-        { id: 4, title: "Inexpensive Family Meals", author: "Simon Holst", image: "InexpensiveFamilyMeals.jpg", stars: 3 },
-        { id: 5, title: "Paleo Slow Cooking", author: "Chrissy Gawer", image: "PaleoSlowCooking.jpg", stars: 4 },
-        { id: 6, title: "Cook Like an Italian", author: "Toble Puttock", image: "CookLikeAnItalian.jpg", stars: 3 },
-        { id: 7, title: "Suneeta Vaswani", author: "Geeta Devi", image: "SuneetaVaswani.jpg", stars: 5 },
-        { id: 8, title: "Jamie Does", author: "Jamie Oliver", image: "JamieDoes.jpg", stars: 3 },
-        { id: 9, title: "Jamie's Italy", author: "Jamie Oliver", image: "JamiesItaly.jpg", stars: 5 },
-        { id: 10, title: "Vegetables Cookbook", author: "Matthew Biggs", image: "VegetablesCookbook.jpg", stars: 3 }
+    var library = [
+        {
+            id: 1, title: "Jewels of Nizam",
+            author: "Geeta Devi", image: "JewelsOfNizam.jpg", stars: 5
+        },
+        {
+            id: 2, title: "Cakes & Bakes",
+            author: "Sanjeev Kapoor", image: "CakesAndBakes.jpg", stars: 5
+        },
+        {
+            id: 3, title: "Jamie's Kitchen",
+            author: "Jamie Oliver", image: "JamiesKitchen.jpg", stars: 4
+        },
+        {
+            id: 4, title: "Inexpensive Family Meals",
+            author: "Simon Holst", image: "InexpensiveFamilyMeals.jpg", stars: 3
+        },
+        {
+            id: 5, title: "Paleo Slow Cooking",
+            author: "Chrissy Gawer", image: "PaleoSlowCooking.jpg", stars: 4
+        },
+        {
+            id: 6, title: "Cook Like an Italian",
+            author: "Toble Puttock", image: "CookLikeAnItalian.jpg", stars: 3
+        },
+        {
+            id: 7, title: "Suneeta Vaswani",
+            author: "Geeta Devi", image: "SuneetaVaswani.jpg", stars: 5
+        },
+        {
+            id: 8, title: "Jamie Does",
+            author: "Jamie Oliver", image: "JamieDoes.jpg", stars: 3
+        },
+        {
+            id: 9, title: "Jamie's Italy",
+            author: "Jamie Oliver", image: "JamiesItaly.jpg", stars: 5
+        },
+        {
+            id: 10, title: "Vegetables Cookbook",
+            author: "Matthew Biggs", image: "VegetablesCookbook.jpg", stars: 3
+        }
     ];
 
     //История
-    var History = [
-        { id: 1, text: "You added <b>Fight Club</b> by <b>Chuck Palahniuk</b> to your <b>Must Read Titles</b>", date: { day: 20, month: 9, year: 2015, hour: 15, minutes: 20 } },
-        { id: 2, text: "You added <b>The Trial</b> by <b>Franz Kafka</b> to your <b>Must Read Titles</b>", date: { day: 20, month: 9, year: 2015, hour: 15, minutes: 40 } },
+    var history = [
+        {
+            id: 1, text: "You added <b>Fight Club</b> by <b>Chuck Palahniuk</b> to your" +
+            "<b>Must Read Titles</b>", date: { day: 20, month: 9, year: 2015, hour: 15, minutes: 20 }
+        },
+        {
+            id: 2, text: "You added <b>The Trial</b> by <b>Franz Kafka</b> to your" +
+            "<b>Must Read Titles</b>", date: { day: 20, month: 9, year: 2015, hour: 15, minutes: 40 }
+        },
     ];
 
+
+    return {
+        history: history,
+        library: library
+    };
+} ());
+
+
+//Общие Функции
+var Common = (function (LibraryTools, HistoryTools) {
+
+    "use strict";
+
     //Дата
-    var nowDate, nowHour, nowMinutes, nowDay, nowMonth, nowYear;
+    var nowDate;
+    var nowHour;
+    var nowMinutes;
+    var nowDay;
+    var nowMonth;
+    var nowYear;
 
     //Отображение блока добавления
     var onAddBlock = false;
 
     //Загружаемая фотография
     var book_image;
-
-
-
-
-
-    /*#######################
-      ### Функции - Общие ###
-      #######################*/
 
     //Отображение блока добавления
     function displayAddBlock() {
@@ -55,32 +103,26 @@ var js = (function () {
     }
 
     //Загрузка фотографии
-    function image_loaded() {
+    function imageLoaded() {
         document.getElementById("add_image_label").style = "background-color: #16A3F9";
         book_image = document.getElementById("add_book_image").value;
-        book_image = "books/" + book_image.substring(12);
-        document.getElementById("loaded_image").style = "background-image: url(\"" + book_image + "\"); display: block;";
+        book_image = book_image.substring(12);
+        book_image = "books/" + book_image;
+        document.getElementById("loaded_image").style = "background-image: url(\"" +
+            book_image + "\"); display: block;";
     }
-
-    //Обработчики событий
-    document.getElementById("categoryAll").onclick = function () { loadLibrary() };
-    document.getElementById("categoryPopular").onclick = function () { mostPopular() };
-    document.getElementById("search").oninput = function () { search() };
-    document.getElementById("top_arrow").onclick = function () { update() };
-    document.getElementById("add_book_display_button").onclick = function () { displayAddBlock() };
-    document.getElementById("add_book").onclick = function () { addBook() };
-    document.getElementById("add_book_image").onchange = function () { image_loaded() };    
 
     //Выбор категории
     function categoryClick(category) {
         document.getElementById("categoryAll").style = "";
         document.getElementById("categoryPopular").style = "";
-        document.getElementById(category).style = "color: white !important;\
-        background-color: #95b6d5;\
-        padding: 5px;\
-        padding-left: 10px;\
-        padding-right: 10px;\
-        border-radius: 7px;"
+        document.getElementById(category).style =
+            "color: white !important;" +
+            "background-color: #95b6d5;" +
+            "padding: 5px;" +
+            "padding-left: 10px;" +
+            "padding-right: 10px;" +
+            "border-radius: 7px;";
     }
 
     //Текущая дата
@@ -93,13 +135,19 @@ var js = (function () {
         nowYear = nowDate.getFullYear();
     }
 
+    //Пустая ли строка
+    function is_Blank(string) {
+        string = string.replace(/\s{2,}/g, ' ');
+        return (string != ' ' && string != '') ? true : false;
+    }
+
     //Обновление информации
     function update() {
         //Обновляем дату
         updateDate();
         //Перезагружаем библиотеку и историю
-        loadLibrary();
-        loadHistory();
+        LibraryTools.loadLibrary();
+        HistoryTools.loadHistory();
         //Очистка загруженного изображения
         book_image = "";
         document.getElementById("add_image_label").style = "";
@@ -110,31 +158,47 @@ var js = (function () {
         var title = document.getElementById("add_book_title").value = "";
         var author = document.getElementById("add_book_author").value = "";
     }
+    
 
+    return {
+        categoryClick: categoryClick,
+        imageLoaded: imageLoaded,
+        displayAddBlock: displayAddBlock,
+        is_Blank: is_Blank,
+        currentDate: {
+            nowDate: nowDate,
+            nowMonth: nowMonth,
+            nowYear: nowYear,
+            nowHour,
+            nowMinutes
+        },
+        update: update
+    };
+} (LibraryTools, HistoryTools));
 
+//Функции для работы с библиотекой
+var LibraryTools = (function (DB, Common) {
 
-
-
-    /*######################################
-      ### Функции - Работа с библиотекой ###
-      ######################################*/
+    "use strict";
 
     //Формируем код блока книги
     function createBookBlock(id, title, author, image, stars) {
-        var headCode = "<div class=\"book book_id" + id + "\">\
-				<div class=\"book_pic\"><img src=\"books/"+ image + "\" alt=\"cover\"></div>\
-				<div class=\"book_title\">"+ title + "</div>\
-				<div class=\"book_author\">"+ author + "</div>\
-				<div class=\"stars\">";
+        var headCode = "<div class=\"book book_id" + id + "\">" +
+            "<div class=\"book_pic\"><img src=\"books/" + image + "\" alt=\"cover\"></div>" +
+            "<div class=\"book_title\">" + title + "</div>" +
+            "<div class=\"book_author\">" + author + "</div>" +
+            "<div class=\"stars\">";
 
         var botCode = '';
         var count = 5;
         for (var i = 0; i < (5 - stars); i++) {
-            botCode += "<div onclick=\"js.star(" + count + "," + id + ")\" class=\"stars__star stars__star--zero\"></div>";
+            botCode += "<div onclick=\"js.star(" + count + "," +
+                id + ")\" class=\"stars__star stars__star--zero\"></div>";
             count--;
         }
         for (var i = 0; i < stars; i++) {
-            botCode += "<div onclick=\"js.star(" + count + "," + id + ")\" class=\"stars__star stars__star--full\"></div>";
+            botCode += "<div onclick=\"js.star(" + count + "," +
+                id + ")\" class=\"stars__star stars__star--full\"></div>";
             count--;
         }
 
@@ -145,11 +209,17 @@ var js = (function () {
 
     //Загружаем библиотеку
     function loadLibrary() {
-        categoryClick("categoryAll");
+        Common.categoryClick("categoryAll");
         document.getElementById("books").innerHTML = "";
-        for (var i = 0; i < Library.length; i++) {
-            var book = Library[i];
-            createBookBlock(book["id"], book["title"], book["author"], book["image"], book["stars"]);
+        for (var i = 0; i < DB.library.length; i++) {
+            var book = DB.library[i];
+            createBookBlock(
+                book["id"],
+                book["title"],
+                book["author"],
+                book["image"],
+                book["stars"]
+            );
         }
     }
 
@@ -159,9 +229,17 @@ var js = (function () {
         var count = 0;
         var search = document.getElementById("search").value.toLowerCase();
         for (var i = 0; i < Library.length; i++) {
+            var titleSearch = book["title"].toLowerCase().indexOf(search);
+            var authorSearch = book["author"].toLowerCase().indexOf(search);
             var book = Library[i];
-            if ((book["title"].toLowerCase().indexOf(search) != -1) || (book["author"].toLowerCase().indexOf(search) != -1)) {
-                createBookBlock(book["id"], book["title"], book["author"], book["image"], book["stars"]);
+            if (titleSearch != -1 || authorSearch != -1) {
+                createBookBlock(
+                    book["id"],
+                    book["title"],
+                    book["author"],
+                    book["image"],
+                    book["stars"]
+                );
                 count++;
             }
         }
@@ -173,12 +251,20 @@ var js = (function () {
     //Изменение рейтинга
     function updateRating(rating, id) {
         id--;
-        if (Library[id].stars != rating) {
-            Library[id].stars = rating;
-            var history_id = History.length + 1;
-            History.push({
-                id: history_id, text: "You rate  <b>" + Library[id].title + "</b> by <b>" + Library[id].author + "</b> " + rating + " stars",
-                date: { day: nowDay, month: nowMonth, year: nowYear, hour: nowHour, minutes: nowMinutes }
+        if (DB.library[id].stars != rating) {
+            DB.library[id].stars = rating;
+            var history_id = DB.history.length + 1;
+            DB.history.push({
+                id: history_id, text: "You rate  <b>" +
+                DB.library[id].title + "</b> by <b>" +
+                DB.library[id].author + "</b> " + rating + " stars",
+                date: {
+                    day: nowDay,
+                    month: nowMonth,
+                    year: nowYear,
+                    hour: nowHour,
+                    minutes: nowMinutes
+                }
             });
             update();
         }
@@ -200,7 +286,13 @@ var js = (function () {
         for (var i = 0; i < Library.length; i++) {
             var book = Library[i];
             if (book["stars"] == maxStar) {
-                createBookBlock(book["id"], book["title"], book["author"], book["image"], book["stars"]);
+                createBookBlock(
+                    book["id"],
+                    book["title"],
+                    book["author"],
+                    book["image"],
+                    book["stars"]
+                );
             }
         }
     }
@@ -209,25 +301,52 @@ var js = (function () {
     function addBook() {
         var title = document.getElementById("add_book_title").value;
         var author = document.getElementById("add_book_author").value;
-        var book_id = Library.length + 1;
-        var history_id = History.length + 1;
-        Library.push({ id: book_id, title: title, author: author, image: book_image.substring(6), stars: 0 });
-        History.push({
-            id: history_id, text: "You added <b>" + title + "</b> by <b>" + author + "</b> to your <b>Library</b>",
-            date: { day: nowDay, month: nowMonth, year: nowYear, hour: nowHour, minutes: nowMinutes }
-        });
-        displayAddBlock();
-        alert("Book \"" + author + " - " + title + "\" has been added!");
-        update();
+
+        if (common.is_Blank(title) && common.is_Blank(author)) {
+            var book_id = Library.length + 1;
+            var history_id = History.length + 1;
+            if (book_image == "") {
+                book_image = "books/nocover.jpg";
+            }
+            Library.push({
+                id: book_id,
+                title: title,
+                author: author,
+                image: book_image.substring(6),
+                stars: 0
+            });
+            History.push({
+                id: history_id, text: "You added <b>" +
+                title + "</b> by <b>" + author + "</b> to your <b>Library</b>",
+                date: {
+                    day: nowDay,
+                    month: nowMonth,
+                    year: nowYear,
+                    hour: nowHour,
+                    minutes: nowMinutes
+                }
+            });
+            displayAddBlock();
+            alert("Book \"" + author + " - " + title + "\" has been added!");
+            update();
+        } else {
+            alert("Blank inputs!");
+        }
     }
 
+    return {
+        loadLibrary: loadLibrary,
+        search: search,
+        updateRating: updateRating,
+        mostPopular: mostPopular,
+        addBook: addBook
+    };
+} (DB, Common));
 
 
+var HistoryTools = (function () {
 
-
-    /*###################################
-      ### Функции - Работа с историей ###
-      ###################################*/
+    "use strict";
 
     //Генерируем строчку времени
     function generateTimeHistory(day, month, year, hour, minutes) {
@@ -263,10 +382,10 @@ var js = (function () {
         var minutes = date.minutes;
         var timeHistory = generateTimeHistory(day, month, year, hour, minutes);
 
-        var headCode = "<div class=\"history_msg\" hystory_id" + id + ">\
-				<div class=\"history_pic menu_pic\"></div>\
-				<div class=\"history_text\">\
-					<p>"+ text + "</p><span>" + timeHistory + " ago</span></div></div>";
+        var headCode = "<div class=\"history_msg\" hystory_id" + id + ">" +
+            "<div class=\"history_pic menu_pic\"></div>" +
+            "<div class=\"history_text\">" +
+            "<p>" + text + "</p><span>" + timeHistory + " ago</span></div></div>";
 
         history.innerHTML = headCode + history.innerHTML;
     }
@@ -276,22 +395,47 @@ var js = (function () {
         document.getElementById("history_msgs").innerHTML = "";
         for (var i = 0; i < History.length; i++) {
             var msg = History[i];
-            createHistoryBlock(msg["id"], msg["text"], msg["date"]);
+            createHistoryBlock(
+                msg["id"],
+                msg["text"],
+                msg["date"]
+            );
         }
     }
 
-
-
-
-
-    /*###############################
-      ### Инициализация и возврат ###
-      ###############################*/
-
-    update();
-
     return {
-        update : update,
-        star: updateRating
-    }
+        createHistoryBlock: createHistoryBlock,
+        loadHistory: loadHistory
+    };
 } ());
+
+var Events = (function (LibraryTools, Common) {
+
+    "use strict";
+    //Обработчики событий
+    document.getElementById("categoryAll").onclick = function () {
+        LibraryTools.loadLibrary()
+    };
+    document.getElementById("categoryPopular").onclick = function () {
+        LibraryTools.mostPopular()
+    };
+    document.getElementById("search").oninput = function () {
+        LibraryTools.search()
+    };
+    document.getElementById("top_arrow").onclick = function () {
+        Common.update()
+    };
+    document.getElementById("add_book_display_button").onclick = function () {
+        Common.displayAddBlock()
+    };
+    document.getElementById("add_book").onclick = function () {
+        LibraryTools.addBook()
+    };
+    document.getElementById("add_book_image").onchange = function () {
+        Common.imageLoaded()
+    };
+
+} (LibraryTools, Common));
+
+
+
