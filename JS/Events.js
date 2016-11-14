@@ -21,5 +21,8 @@ var Events = (function (LibraryTools, Common) {
     document.getElementById("add_book_image").addEventListener("change", function () {
         Common.imageLoaded();
     });
+    document.getElementById("top_arrow").addEventListener("click", function() {
+        Main.update();
+    });
 
 } (LibraryTools, Common));
