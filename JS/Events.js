@@ -1,27 +1,25 @@
-var Events = (function (LibraryTools, Common, Main) {
+//Обработчики событий
+var Events = (function (LibraryTools, Common) {
 
     "use strict";
-    //Обработчики событий
-    document.getElementById("categoryAll").onclick = function () {
-        LibraryTools.loadLibrary()
-    };
-    document.getElementById("categoryPopular").onclick = function () {
-        LibraryTools.mostPopular()
-    };
-    document.getElementById("search").oninput = function () {
+
+    document.getElementById("categoryAll").addEventListener("click", function () {
+        LibraryTools.loadLibrary();
+    });
+    document.getElementById("categoryPopular").addEventListener("click", function () {
+        LibraryTools.mostPopular();
+    });
+    document.getElementById("search").addEventListener("input", function () {
         LibraryTools.search()
-    };
-    document.getElementById("top_arrow").onclick = function () {
-        Main.update()
-    };
-    document.getElementById("add_book_display_button").onclick = function () {
-        Common.displayAddBlock()
-    };
-    document.getElementById("add_book").onclick = function () {
-        LibraryTools.addBook()
-    };
-    document.getElementById("add_book_image").onchange = function () {
-        Common.imageLoaded()
-    };
+    });
+    document.getElementById("add_book_display_button").addEventListener("click", function () {
+        Common.displayAddBlock();
+    });
+    document.getElementById("add_book").addEventListener("click", function () {
+        LibraryTools.addBook();
+    });
+    document.getElementById("add_book_image").addEventListener("change", function () {
+        Common.imageLoaded();
+    });
 
 } (LibraryTools, Common));
