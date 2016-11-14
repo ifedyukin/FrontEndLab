@@ -1,29 +1,29 @@
 //Главный модуль
-var Main = (function (Common, LibraryTools, HistoryTools) {
+var Main = (function (Utils, BooksView, NotificationView) {
 
     "use strict";
 
     //Обновление информации
     function update() {
         //Обновляем дату
-        Common.updateDate();
+        Utils.updateDate();
         //Перезагружаем библиотеку и историю
-        LibraryTools.loadLibrary();
-        HistoryTools.loadHistory();
+        BooksView.loadLibrary();
+        NotificationView.loadHistory();
         //Очистка загруженного изображения
-        Common.bookImage = "";
+        Utils.bookImage = "";
         window.document.querySelector("#add_image_label").style = "";
         window.document.querySelector("#loaded_image").style = "";
         //Перезагружаем блок добавления
         window.document.querySelector("#add_block").style = "display: none";
         var title = window.document.querySelector("#add_book_title").value = "";
         var author = window.document.querySelector("#add_book_author").value = "";
-        console.log("Update - OK!");
     }
+
+    //Начало
+    update();
 
     return {
         update: update
     };
-} (Common, LibraryTools, HistoryTools));
-
-Main.update();
+} (Utils, BooksView, NotificationView));
