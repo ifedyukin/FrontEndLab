@@ -16,27 +16,27 @@ var Common = (function () {
 
     //Отображение блока добавления
     function displayAddBlock() {
-        if (document.getElementById("add_block").style.display == "block") {
-            document.getElementById("add_block").style.display = "none";
+        if ( window.document.querySelector("#add_block").style.display == "block") {
+             window.document.querySelector("#add_block").style.display = "none";
         } else {
-            window.document.getElementById("add_block").style.display = "block";
+            window. window.document.querySelector("#add_block").style.display = "block";
         }
     }
 
     //Загрузка фотографии
     function imageLoaded() {
-        document.getElementById("add_image_label").style = "background-color: #16A3F9";
-        Common.bookImage = document.getElementById("add_book_image").value;
+         window.document.querySelector("#add_image_label").style = "background-color: #16A3F9";
+        Common.bookImage =  window.document.querySelector("#add_book_image").value;
         Common.bookImage = Common.bookImage.substring(12);
         Common.bookImage = "books/" + Common.bookImage;
-        document.getElementById("loaded_image").style = "background-image: url(\"" +
+         window.document.querySelector("#loaded_image").style = "background-image: url(\"" +
             Common.bookImage + "\"); display: block;";
     }
 
     //Выбор категории
     function categoryClick(category) {
-        document.getElementById("categoryAll").style = "";
-        document.getElementById("categoryPopular").style = "";
+         window.document.querySelector("#categoryAll").style = "";
+         window.document.querySelector("#categoryPopular").style = "";
         document.getElementById(category).style =
             "color: white !important;" +
             "background-color: #95b6d5;" +

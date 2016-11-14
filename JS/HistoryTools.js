@@ -28,7 +28,7 @@ var HistoryTools = (function (Common, DB) {
 
     //Создаём блока сообщения-истории
     function createHistoryBlock(id, text, date) {
-        var history = document.getElementById("history_msgs");
+        var history =  window.document.querySelector("#history_msgs");
 
         var day = date.day;
         var month = date.month;
@@ -47,7 +47,7 @@ var HistoryTools = (function (Common, DB) {
 
     //Загружаем историю
     function loadHistory() {
-        document.getElementById("history_msgs").innerHTML = "";
+         window.document.querySelector("#history_msgs").innerHTML = "";
         for (var i = 0; i < DB.history.length; i++) {
             var msg = DB.history[i];
             createHistoryBlock(

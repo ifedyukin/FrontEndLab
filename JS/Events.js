@@ -3,25 +3,25 @@ var Events = (function (LibraryTools, Common) {
 
     "use strict";
 
-    document.getElementById("categoryAll").addEventListener("click", function () {
+     window.document.querySelector("#categoryAll").addEventListener("click", function () {
         LibraryTools.loadLibrary();
     });
-    document.getElementById("categoryPopular").addEventListener("click", function () {
+     window.document.querySelector("#categoryPopular").addEventListener("click", function () {
         LibraryTools.mostPopular();
     });
-    document.getElementById("search").addEventListener("input", function () {
+     window.document.querySelector("#search").addEventListener("input", function () {
         LibraryTools.search()
     });
-    document.getElementById("add_book_display_button").addEventListener("click", function () {
+     window.document.querySelector("#add_book_display_button").addEventListener("click", function () {
         Common.displayAddBlock();
     });
-    document.getElementById("add_book").addEventListener("click", function () {
+     window.document.querySelector("#add_book").addEventListener("click", function () {
         LibraryTools.addBook();
     });
-    document.getElementById("add_book_image").addEventListener("change", function () {
+     window.document.querySelector("#add_book_image").addEventListener("change", function () {
         Common.imageLoaded();
     });
-    document.getElementById("top_arrow").addEventListener("click", function() {
+     window.document.querySelector("#top_arrow").addEventListener("click", function() {
         Main.update();
     });
 

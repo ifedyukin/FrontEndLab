@@ -26,13 +26,13 @@ var LibraryTools = (function (DB, Common) {
 
         var code = headCode + botCode + "</div></div>";
 
-        document.getElementById("books").innerHTML += code;
+         window.document.querySelector("#books").innerHTML += code;
     }
 
     //Загружаем библиотеку
     function loadLibrary() {
         Common.categoryClick("categoryAll");
-        document.getElementById("books").innerHTML = "";
+         window.document.querySelector("#books").innerHTML = "";
         for (var i = 0; i < DB.library.length; i++) {
             var book = DB.library[i];
             createBookBlock(
@@ -47,9 +47,9 @@ var LibraryTools = (function (DB, Common) {
 
     //Поиск
     function search() {
-        document.getElementById("books").innerHTML = "";
+         window.document.querySelector("#books").innerHTML = "";
         var count = 0;
-        var search = document.getElementById("search").value.toLowerCase();
+        var search =  window.document.querySelector("#search").value.toLowerCase();
         for (var i = 0; i < DB.library.length; i++) {
             var book = DB.library[i];
             var titleSearch = book["title"].toLowerCase().indexOf(search);
@@ -66,7 +66,7 @@ var LibraryTools = (function (DB, Common) {
             }
         }
         if (count == 0) {
-            document.getElementById("books").innerHTML = "<h2>Not found!</h2>";
+             window.document.querySelector("#books").innerHTML = "<h2>Not found!</h2>";
         }
     }
 
@@ -95,7 +95,7 @@ var LibraryTools = (function (DB, Common) {
     //Только популярные
     function mostPopular() {
         Common.categoryClick("categoryPopular");
-        document.getElementById("books").innerHTML = "";
+         window.document.querySelector("#books").innerHTML = "";
 
         var maxStar = 1;
         for (var i = 0; i < DB.library.length; i++) {
@@ -121,8 +121,8 @@ var LibraryTools = (function (DB, Common) {
 
     //Добавление книги
     function addBook() {
-        var title = document.getElementById("add_book_title").value;
-        var author = document.getElementById("add_book_author").value;
+        var title =  window.document.querySelector("#add_book_title").value;
+        var author =  window.document.querySelector("#add_book_author").value;
 
         if (Common.isBlank(title) && Common.isBlank(author)) {
             var bookId = DB.library.length + 1;
