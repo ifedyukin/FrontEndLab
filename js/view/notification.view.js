@@ -2,19 +2,6 @@ var NotificationView = (function (NotificationsController, NotificationsStore) {
 
     "use strict";
 
-    //Загружаем историю
-    function loadHistory() {
-        window.document.querySelector("#history_msgs").innerHTML = "";
-        for (var i = 0; i < NotificationsStore.length; i++) {
-            var msg = NotificationsStore[i];
-            createBlock(
-                msg["id"],
-                msg["text"],
-                msg["date"]
-            );
-        }
-    }
-
     //Создаём блока сообщения-истории
     function createBlock(id, text, date) {
         var history = window.document.querySelector("#history_msgs");
@@ -32,6 +19,19 @@ var NotificationView = (function (NotificationsController, NotificationsStore) {
             "<p>" + text + "</p><span>" + timeHistory + " ago</span></div></div>";
 
         history.innerHTML = headCode + history.innerHTML;
+    }
+
+     //Загружаем историю
+    function loadHistory() {
+        window.document.querySelector("#history_msgs").innerHTML = "";
+        for (var i = 0; i < NotificationsStore.length; i++) {
+            var msg = NotificationsStore[i];
+            createBlock(
+                msg["id"],
+                msg["text"],
+                msg["date"]
+            );
+        }
     }
 
     return {
