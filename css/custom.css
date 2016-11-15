@@ -1,0 +1,17 @@
+body{
+    text-align: center;
+}
+
+section{
+    width: 800px;
+    margin: 25px auto;
+}
+
+section .panel-body{
+    height: 300px;
+    overflow-y: scroll;
+}
+
+.panel-body .input-group{
+    margin-bottom: 12px;
+}

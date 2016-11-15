@@ -3,121 +3,38 @@
 
 <head>
 	<meta charset="utf-8">
-	<title>Library</title>
-	<link rel="stylesheet" type="text/css" href="styles/style.css">
+	<title>ToDO List</title>
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="css/custom.css" rel="stylesheet">
 </head>
 
 <body>
-	<header>
-		<div id="top_menu">
-			<div class="top_profile">
-				<div class="avatar"></div>
-				<a href="#">Igor Fedyukin</a>
-				<div id="top_arrow" class="top_arrow"></div>
-			</div>
-			<div class="top_item">
-				<a href="#">Help Center</a>
-				<span> &bull; </span>
-				<a href="#">Our Support</a>
+	<h1>ToDO List</h1>
+	<section>
+		<div class="panel panel-default">
+			<div id="listItems" class="panel-body">
+
 			</div>
 		</div>
-	</header>
-	<sidebar>
-		<div class="side">
-			<a href="#" id="add_book_display_button" class="add_book">
-				<span class="plus">+</span> ADD A BOOK
-			</a>
-			<div id="add_block">
-				<form>
-					<input placeholder="Title" type="text" id="add_book_title" name="title">
-					<input placeholder="Author" type="text" id="add_book_author" name="author">
-					<label id="add_image_label" class="upload_button">Load Image 
-					<input type="file" id="add_book_image" name="image"></label><br>
-					<a href="#" id="add_book">Add Book</a>
-					<div id="loaded_image"></div>
-				</form>
-			</div>
+
+		<div class="input-group">
+			<input type="text" class="form-control" id="ToDoNewItem" placeholder="ToDO Text...">
+			<span class="input-group-btn">
+				<button class="btn btn-default" type="button" id="AddNewItem">Add</button>
+			</span>
 		</div>
-		<div class="side side_menu">
-			<a href="#">
-				<div class="reading_pic menu_pic"></div>Now Reading</a>
-			<a class="select_item" href="#">
-				<div class="browse_pic menu_pic"></div>Browse</a>
-			<a href="#">
-				<div class="buy_pic menu_pic"></div>Buy Books</a>
-			<a href="#">
-				<div class="favourite_pic menu_pic"></div>Favourite Books</a>
-			<a href="#">
-				<div class="wishlist_pic menu_pic"></div>Wishlist</a>
-			<a href="#">
-				<div class="history_pic menu_pic"></div>History</a>
-		</div>
-		<div class="side side_menu">
-			<ul>
-				<li class="red"><a href="#"><span>Must Read Titles</span></a></li>
-				<li class="yellow"><a href="#"><span>Best Of List</span></a></li>
-				<li class="blue"><a href="#"><span>Classic Novels</span></a></li>
-				<li class="purple"><a href="#"><span>Non Fiction</span></a></li>
-			</ul>
-		</div>
-		<div id="history_msgs" class="side side_menu noborder">
 
 		</div>
-	</sidebar>
-	<div id="content">
-		<div class="head_content">
-			<h1>Browse Available Books</h1>
-		</div>
-		<div class="head_content">
-			<ul>
-				<li><a id="categoryAll" href="#">All Books</a></li>
-				<li><a href="#">Most Recent</a></li>
-				<li><a id="categoryPopular" href="#">Most Popular</a></li>
-				<li><a href="#">Free Books</a></li>
-			</ul>
-			<input id="search" class="search_box" placeholder="Enter Keywords" type="text">
-		</div>
-		<div id="books">
-		</div>
-	</div>
-	<footer>
-		<a id="settings_button">
-			<div></div>
-		</a>
-		<a id="help_button">
-			<div></div>
-		</a>
-	</footer>
+	</section>
 
-	<!--Подключаем скрипты
-	<script type="text/javascript" src="JS/DB.js"></script>
-	<script type="text/javascript" src="JS/Common.js"></script>
-	<script type="text/javascript" src="JS/LibraryTools.js"></script>
-	<script type="text/javascript" src="JS/HistoryTools.js"></script>
-	<script type="text/javascript" src="JS/Main.js"></script>
-	<script type="text/javascript" src="JS/Events.js"></script>
-	Подключили скрипты-->
 
-	<script type="text/javascript" src="js/storage/books.store.js"></script>
-	<script type="text/javascript" src="js/storage/notifications.store.js"></script>
-
-	<script type="text/javascript" src="js/model/book.model.js"></script>
-	
-	<script type="text/javascript" src="js/utils/utils.js"></script>
-	<script type="text/javascript" src="js/model/notification.model.js"></script>
-	<script type="text/javascript" src="js/view/books.view.js"></script>
-	
-	
-
-	<script type="text/javascript" src="js/controllers/books.controller.js"></script>
-	<script type="text/javascript" src="js/controllers/notifications.controller.js"></script>
-	<script type="text/javascript" src="js/view/notification.view.js"></script>
-
-	<script type="text/javascript" src="js/main.js"></script>
-	
-	
-	
-
+	<script src="js/utils/jquery.min.js"></script>
+	<script src="js/utils/bootstrap.min.js"></script>
+	<script src="js/storage/item.store.js"></script>
+	<script src="js/model/item.model.js"></script>
+	<script src="js/view/item.view.js"></script>
+	<script src="js/controller/item.controller.js"></script>
+	<script src="js/main.js"></script>
 </body>
 
 </html>
