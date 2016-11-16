@@ -2,7 +2,7 @@ var BooksStore = (function (Book) {
 
     "use strict";
 
-    var BooksStore = [
+    return [
         new Book(1, "Jewels of Nizam", "Geeta Devi", "JewelsOfNizam.jpg", 5),
         new Book(2, "Cakes & Bakes", "Sanjeev Kapoor", "CakesAndBakes.jpg", 5),
         new Book(3, "Jamie's Kitchen", "Jamie Oliver", "JamiesKitchen.jpg", 4),
@@ -14,7 +14,5 @@ var BooksStore = (function (Book) {
         new Book(9, "Jamie's Italy", "Jamie Oliver", "JamiesItaly.jpg", 5),
         new Book(10, "Vegetables Cookbook", "Matthew Biggs", "VegetablesCookbook.jpg", 3)
     ];
-
-    return BooksStore;
 
 } (Book));
