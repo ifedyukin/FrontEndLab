@@ -2,9 +2,9 @@ var Item = (function () {
 
     "use strict;"
 
-    function Item(text) {
+    function Item(text, checked) {
         this.text = text;
-        this.check = false;
+        this.checked  = checked || false;
     }
 
     return Item;

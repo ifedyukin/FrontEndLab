@@ -1,31 +1,51 @@
-var ItemController = (function (Item, ItemStore, ItemView) {
+var ItemController = (function (Item, ItemStore, ItemView, Utils) {
 
     "use strict;"
+
+    //Передаём данные в загрузку
+    function load() {
+        ItemView.clear();
+        for (var i = ItemStore.length - 1; i >= 0; i--) {
+            var item = {
+                text: ItemStore[i].text,
+                checked: ItemStore[i].checked,
+                index: i
+            };
+            ItemView.load(item);
+        }
+    }
 
     //Добавление нового элемента
     function add() {
         var text = window.document.querySelector("#ToDoNewItem").value;
-        if (confirm("Are you sure want to add new ToDO item?")) {
-            var newItem = new Item(text);
-            ItemStore.push(newItem);
-            ItemView.load();
+        if (Utils.isBlank(text)) {
+            if (ItemView.confirmMove("add new")) {
+                var newItem = new Item(text);
+                ItemStore.push(newItem);
+                load();
+            }
+        } else {
+            alert("Blank input!");
         }
-        var text = window.document.querySelector("#ToDoNewItem").value = "";
     }
 
     //Удаление элемента
     function remove(i) {
-        if (confirm("Are you sure delete ToDO item?")) {
+        if (ItemView.confirmMove("delete")) {
             ItemStore.splice(i, 1);
-            ItemView.load();
+            load();
         }
     }
 
     //Выполнение задачи
     function check(i) {
-        if (confirm("Are you sure check ToDO item?")) {
-            ItemStore[i].check = true;
-            ItemView.load();
+        if (ItemView.confirmMove("check")) {
+            var text = ItemStore[i].text;
+            ItemStore.splice(i,1);
+            var newItem = new Item(text, true);
+            ItemStore.push(newItem);
+            console.log(newItem);
+            load();
         }
     }
 
@@ -35,8 +55,9 @@ var ItemController = (function (Item, ItemStore, ItemView) {
     });
 
     return {
+        check: check,
         remove: remove,
-        check: check
-    };
+        load: load
+    }
 
-} (Item, ItemStore, ItemView));
+} (Item, ItemStore, ItemView, Utils));

@@ -1,7 +1,7 @@
-var Main = (function (ItemView) {
+var Main = (function (ItemController) {
 
     "use strict";
 
-    ItemView.load();
+    ItemController.load();    
 
-} (ItemView));
+} (ItemController));
