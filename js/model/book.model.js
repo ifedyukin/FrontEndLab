@@ -2,7 +2,7 @@ var Book = (function(){
 
     "use strict;"
 
-    function book(id, title, author, image){
+    function Book(id, title, author, image){
         this.id = id;
         this.title = title;
         this.author = author;
@@ -11,6 +11,6 @@ var Book = (function(){
         this.image  = image || "nocover.jpg";
     }
 
-    return book;
+    return Book;
 
 }());

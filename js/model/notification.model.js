@@ -2,13 +2,13 @@ var Notification = (function (Utils) {
 
     "use strict;"
 
-    function notification(id, text) {
+    function Notification(id, text) {
         this.id = id;
         this.text = text;
 
         this.date = Utils.updateDate();
     }
 
-    return notification;
+    return Notification;
 
 } (Utils));

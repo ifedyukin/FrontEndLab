@@ -2,7 +2,7 @@ var BooksStore = (function () {
 
     "use strict;"
 
-    var library = [
+    var BooksStore = [
         {
             id: 1, title: "Jewels of Nizam",
             author: "Geeta Devi", image: "JewelsOfNizam.jpg", stars: 5
@@ -45,6 +45,6 @@ var BooksStore = (function () {
         }
     ];
 
-    return library;
+    return BooksStore;
 
 }());

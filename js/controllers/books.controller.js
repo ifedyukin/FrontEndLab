@@ -82,7 +82,7 @@ var BooksController = (function(BooksStore, Utils, BooksView, NotificationsStore
             NotificationsController.addNotification("You added <b>" +
                 title + "</b> by <b>" + author + "</b> to your <b>Library</b>");
 
-            Utils.displayAddBlock();
+            BooksView.displayAddBlock();
             alert("Book \"" + author + " - " + title + "\" has been added!");
             Main.update();
         } else {

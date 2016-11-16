@@ -30,7 +30,7 @@ var BooksView = (function () {
 
     //Загружаем библиотеку
     function loadLibrary() {
-        Utils.categoryClick("categoryAll");
+        categoryClick("categoryAll");
         window.document.querySelector("#books").innerHTML = "";
         for (var i = 0; i < BooksStore.length; i++) {
             var book = BooksStore[i];
@@ -44,7 +44,53 @@ var BooksView = (function () {
         }
     }
 
+    //Загружаемая фотография
+    var bookImage;
+
+    //Отображение блока добавления
+    function displayAddBlock() {
+        if (window.document.querySelector("#add_block").style.display == "block") {
+            window.document.querySelector("#add_block").style.display = "none";
+        } else {
+            window.window.document.querySelector("#add_block").style.display = "block";
+        }
+    }
+
+    //Загрузка фотографии
+    function imageLoaded() {
+        window.document.querySelector("#add_image_label").style = "background-color: #16A3F9";
+        bookImage = window.document.querySelector("#add_book_image").value;
+        bookImage = bookImage.substring(12);
+        bookImage = "books/" + bookImage;
+        window.document.querySelector("#loaded_image").style = "background-image: url(\"" +
+            bookImage + "\"); display: block;";
+    }
+
+    //Выбор категории
+    function categoryClick(category) {
+        window.document.querySelector("#categoryAll").style = "";
+        window.document.querySelector("#categoryPopular").style = "";
+        document.getElementById(category).style =
+            "color: white !important;" +
+            "background-color: #95b6d5;" +
+            "padding: 5px;" +
+            "padding-left: 10px;" +
+            "padding-right: 10px;" +
+            "border-radius: 7px;";
+    }
+
+    //События
+    window.document.querySelector("#add_book_display_button").addEventListener("click", function() {
+        displayAddBlock();
+    });
+    window.document.querySelector("#add_book_image").addEventListener("change", function() {
+        imageLoaded();
+    });
+
     return {
+        displayAddBlock: displayAddBlock,
+        imageLoaded: imageLoaded,
+        bookImage: bookImage,
         createBlock: createBlock,
         loadLibrary: loadLibrary
     };
