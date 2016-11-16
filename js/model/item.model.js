@@ -2,11 +2,11 @@ var Item = (function () {
 
     "use strict;"
 
-    function item(text) {
+    function Item(text) {
         this.text = text;
         this.check = false;
     }
 
-    return item;
+    return Item;
 
 } ());
