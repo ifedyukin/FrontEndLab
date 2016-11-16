@@ -1,13 +1,13 @@
-var ItemStore = (function () {
+var ItemStore = (function (Item) {
 
     "use strict;"
 
     var Store = [
-        { text: "Make OOP & MVC lab", checked: false },
-        { text: "Write NodeJS server", checked: false },
-        { text: "Buy Orange Pi", checked: false }
+        new Item("Make OOP & MVC lab", false),
+        new Item("Write NodeJS server", false),
+        new Item("Buy Orange Pi", false)
     ];
 
     return Store;
 
-} ());
+} (Item));
