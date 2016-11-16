@@ -1,63 +1,61 @@
-var ItemController = (function (Item, ItemStore, ItemView, Utils) {
+var ItemController = (function (Item, ItemStore) {
 
     "use strict;"
 
     //Передаём данные в загрузку
     function load() {
-        ItemView.clear();
+        var reply = [];
         for (var i = ItemStore.length - 1; i >= 0; i--) {
             var item = {
                 text: ItemStore[i].text,
                 checked: ItemStore[i].checked,
                 index: i
             };
-            ItemView.load(item);
+            reply.push(item);
         }
+        return reply;
     }
 
     //Добавление нового элемента
-    function add() {
-        var text = window.document.querySelector("#ToDoNewItem").value;
-        if (Utils.isBlank(text)) {
-            if (ItemView.confirmMove("add new")) {
-                var newItem = new Item(text);
-                ItemStore.push(newItem);
-                load();
-            }
-        } else {
-            alert("Blank input!");
-        }
+    function add(text) {
+        var newItem = new Item(text);
+
+        ItemStore.push(newItem);
     }
 
     //Удаление элемента
     function remove(i) {
-        if (ItemView.confirmMove("delete")) {
-            ItemStore.splice(i, 1);
-            load();
+        ItemStore.splice(i, 1);
+    }
+
+    //Поиск
+    function search(text) {
+        var result = [];
+        for (var i = 0; i < ItemStore.length; i++) {
+            var item = ItemStore[i];
+            var searchItems = item["text"].toLowerCase().indexOf(text);
+            if (searchItems != -1) {
+                result.push({ text: item["text"], checked: item["checked"], index: i });
+            }
         }
+
+        return result;
     }
 
     //Выполнение задачи
     function check(i) {
-        if (ItemView.confirmMove("check")) {
-            var text = ItemStore[i].text;
-            ItemStore.splice(i,1);
-            var newItem = new Item(text, true);
-            ItemStore.push(newItem);
-            console.log(newItem);
-            load();
-        }
+        var text = ItemStore[i].text;
+        ItemStore.splice(i, 1);
+        var newItem = new Item(text, true);
+        ItemStore.push(newItem);
     }
-
-    //События
-    window.document.querySelector("#AddNewItem").addEventListener("click", function () {
-        add();
-    });
 
     return {
         check: check,
         remove: remove,
-        load: load
+        load: load,
+        add: add,
+        search: search
     }
 
-} (Item, ItemStore, ItemView, Utils));
+} (Item, ItemStore));

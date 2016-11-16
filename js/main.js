@@ -2,6 +2,6 @@ var Main = (function (ItemController) {
 
     "use strict";
 
-    ItemController.load();    
+    ItemView.load();    
 
 } (ItemController));
