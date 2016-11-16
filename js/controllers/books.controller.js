@@ -24,7 +24,7 @@ var BooksController = (function(BooksStore, Utils, BooksView, NotificationsStore
             }
         }
         if (count == 0) {
-            window.document.querySelector("#books").innerHTML = "<h2>Not found!</h2>";
+            BooksView.noResult();
         }
     }
 
@@ -43,8 +43,7 @@ var BooksController = (function(BooksStore, Utils, BooksView, NotificationsStore
 
     //Только популярные
     function mostPopular() {
-        Utils.categoryClick("categoryPopular");
-        window.document.querySelector("#books").innerHTML = "";
+        BooksView.categoryClick("categoryPopular");
 
         var maxStar = 1;
         for (var i = 0; i < BooksStore.length; i++) {

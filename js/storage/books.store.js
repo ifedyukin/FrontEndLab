@@ -1,50 +1,20 @@
-var BooksStore = (function () {
+var BooksStore = (function (Book) {
 
-    "use strict;"
+    "use strict";
 
     var BooksStore = [
-        {
-            id: 1, title: "Jewels of Nizam",
-            author: "Geeta Devi", image: "JewelsOfNizam.jpg", stars: 5
-        },
-        {
-            id: 2, title: "Cakes & Bakes",
-            author: "Sanjeev Kapoor", image: "CakesAndBakes.jpg", stars: 5
-        },
-        {
-            id: 3, title: "Jamie's Kitchen",
-            author: "Jamie Oliver", image: "JamiesKitchen.jpg", stars: 4
-        },
-        {
-            id: 4, title: "Inexpensive Family Meals",
-            author: "Simon Holst", image: "InexpensiveFamilyMeals.jpg", stars: 3
-        },
-        {
-            id: 5, title: "Paleo Slow Cooking",
-            author: "Chrissy Gawer", image: "PaleoSlowCooking.jpg", stars: 4
-        },
-        {
-            id: 6, title: "Cook Like an Italian",
-            author: "Toble Puttock", image: "CookLikeAnItalian.jpg", stars: 3
-        },
-        {
-            id: 7, title: "Suneeta Vaswani",
-            author: "Geeta Devi", image: "SuneetaVaswani.jpg", stars: 5
-        },
-        {
-            id: 8, title: "Jamie Does",
-            author: "Jamie Oliver", image: "JamieDoes.jpg", stars: 3
-        },
-        {
-            id: 9, title: "Jamie's Italy",
-            author: "Jamie Oliver", image: "JamiesItaly.jpg", stars: 5
-        },
-        {
-            id: 10, title: "Vegetables Cookbook",
-            author: "Matthew Biggs", image: "VegetablesCookbook.jpg", stars: 3
-        }
+        new Book(1, "Jewels of Nizam", "Geeta Devi", "JewelsOfNizam.jpg", 5),
+        new Book(2, "Cakes & Bakes", "Sanjeev Kapoor", "CakesAndBakes.jpg", 5),
+        new Book(3, "Jamie's Kitchen", "Jamie Oliver", "JamiesKitchen.jpg", 4),
+        new Book(4, "Inexpensive Family Meals", "Simon Holst", "InexpensiveFamilyMeals.jpg", 3),
+        new Book(5, "Paleo Slow Cooking", "Chrissy Gawer", "PaleoSlowCooking.jpg", 4),
+        new Book(6, "Cook Like an Italian", "Toble Puttock", "CookLikeAnItalian.jpg", 3),
+        new Book(7, "Suneeta Vaswani", "Geeta Devi", "SuneetaVaswani.jpg", 5),
+        new Book(8, "Jamie Does", "Jamie Oliver", "JamieDoes.jpg", 3),
+        new Book(9, "Jamie's Italy", "Jamie Oliver", "JamiesItaly.jpg", 5),
+        new Book(10, "Vegetables Cookbook", "Matthew Biggs", "VegetablesCookbook.jpg", 3)
     ];
 
     return BooksStore;
 
-}());
+} (Book));
