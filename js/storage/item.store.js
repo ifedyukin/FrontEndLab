@@ -1,13 +1,16 @@
-var ItemStore = (function (Item) {
+var ItemStore = (function() {
 
-    "use strict;"
+    "use strict";
 
-    var Store = [
-        new Item("Make OOP & MVC lab", false),
-        new Item("Write NodeJS server", false),
-        new Item("Buy Orange Pi", false)
-    ];
+    //Хрранилище элементов
+    function ItemStore() {
+        return [
+            new Item("Make OOP & MVC lab", false),
+            new Item("Write NodeJS server", false),
+            new Item("Buy Orange Pi", false),
+        ];
+    }
 
-    return Store;
+    return ItemStore;
 
-} (Item));
+} ());

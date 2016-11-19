@@ -1,15 +1,17 @@
-//Общие Функции
-var Utils = (function() {
+var Utils = (function () {
 
     "use strict";
 
-    //Пустая ли строка
-    function isBlank(string) {
-        string = string.replace(/\s{2,}/g, ' ');
-        return (string != ' ' && string != '') ? true : false;
-    }
+    function Utils() {
 
-    return {
-        isBlank: isBlank
+        //Пустая ли строка
+        this.isBlank = function (string) {
+            string = string.replace(/\s{2,}/g, ' ');
+            return (string != ' ' && string != '');
+        }
+
     };
+
+    return Utils;
+
 } ());

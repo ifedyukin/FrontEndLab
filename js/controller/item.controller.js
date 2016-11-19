@@ -1,61 +1,59 @@
-var ItemController = (function (Item, ItemStore) {
+var ItemController = (function () {
 
-    "use strict;"
+    "use strict";
 
-    //Передаём данные в загрузку
-    function load() {
-        var reply = [];
-        for (var i = ItemStore.length - 1; i >= 0; i--) {
-            var item = {
-                text: ItemStore[i].text,
-                checked: ItemStore[i].checked,
-                index: i
-            };
-            reply.push(item);
+    function ItemController(ItemStore, Item) {
+
+        //Передаём данные в загрузку
+        this.load = function () {
+            return ItemStore;
         }
-        return reply;
-    }
 
-    //Добавление нового элемента
-    function add(text) {
-        var newItem = new Item(text);
+        //Добавление нового элемента
+        this.add = function (text) {
+            var newItem = new Item(text);
 
-        ItemStore.push(newItem);
-    }
+            ItemStore.push(newItem);
 
-    //Удаление элемента
-    function remove(i) {
-        ItemStore.splice(i, 1);
-    }
+            return ItemStore;
+        }
 
-    //Поиск
-    function search(text) {
-        var result = [];
-        for (var i = 0; i < ItemStore.length; i++) {
-            var item = ItemStore[i];
-            var searchItems = item["text"].toLowerCase().indexOf(text);
-            if (searchItems != -1) {
-                result.push({ text: item["text"], checked: item["checked"], index: i });
+        //Удаление элемента
+        this.remove = function (i) {
+            ItemStore.splice(i, 1);
+
+            return ItemStore;
+        }
+
+        //Поиск по элементам
+        this.search = function (text) {
+            var result = [];
+
+            for (var i = 0; i < ItemStore.length; i++) {
+                var item = ItemStore[i];
+                var searchItems = item["text"].toLowerCase().indexOf(text);
+
+                if (searchItems != -1) {
+                    result.push({ text: item["text"], checked: item["checked"], index: i });
+                }
             }
+
+            return result;
         }
 
-        return result;
-    }
+        //Отметить элемент как выполненный
+        this.check = function (i) {
+            var text = ItemStore[i].text;
+            ItemStore.splice(i, 1);
 
-    //Выполнение задачи
-    function check(i) {
-        var text = ItemStore[i].text;
-        ItemStore.splice(i, 1);
-        var newItem = new Item(text, true);
-        ItemStore.push(newItem);
-    }
+            var newItem = new Item(text, true);
+            ItemStore.push(newItem);
 
-    return {
-        check: check,
-        remove: remove,
-        load: load,
-        add: add,
-        search: search
-    }
+            return ItemStore;
+        }
 
-} (Item, ItemStore));
+    };
+
+    return ItemController;
+
+} ());

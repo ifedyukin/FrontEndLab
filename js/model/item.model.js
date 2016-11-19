@@ -1,10 +1,11 @@
-var Item = (function () {
+var Item = (function() {
 
-    "use strict;"
+    "use strict";
 
+    //Новый элемент
     function Item(text, checked) {
         this.text = text;
-        this.checked  = checked || false;
+        this.checked = checked || false;
     }
 
     return Item;
