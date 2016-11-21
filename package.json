@@ -1,0 +1,19 @@
+{
+  "name": "epamtodo",
+  "version": "1.0.0",
+  "description": "Simple ToDO list",
+  "author": "Igor Fedyukin <isfedyukin.gmail.com>",
+  "contributors": [{
+  "name": "Igor Fedyukin",
+  "email": "isfedyukin@gmail.com"
+}],
+  "main": "js/main.js",
+  "repository": {
+  "type": "git",
+  "url": "https://github.com/ifedyukin/FrontEndLab/tree/JS_OOPMVC/"
+},
+  "dependencies": {
+    "bootstrap": "~3",
+    "jquery": "1.12.4"
+  }
+}

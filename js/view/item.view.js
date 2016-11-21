@@ -75,16 +75,20 @@ var ItemView = (function() {
 
             this.clear();
             var element = window.document.querySelector("#listItems");
+            var uncheckedCode = "";
+            var checkedCode = "";
 
             for (var i = items.length - 1; i >= 0; i--) {
                 var item = items[i];
 
                 //Порядок вывода записей
                 if (item.checked) {
-                    element.innerHTML = this.generate(item.text, item.checked, i) + element.innerHTML;
+                    checkedCode = this.generate(item.text, item.checked, i) + checkedCode;
                 } else {
-                    element.innerHTML = this.generate(item.text, item.checked, i) + element.innerHTML;
+                    uncheckedCode += this.generate(item.text, item.checked, i);
                 }
+
+                element.innerHTML = uncheckedCode + checkedCode;
             }
 
             //Переназначаем событие клика по кнопке "Выполнить"
@@ -102,6 +106,13 @@ var ItemView = (function() {
         //Обработка нажатия кнопки "Добавить"
         window.document.querySelector("#AddNewItem").addEventListener("click", function() {
             contextItemView.add();
+        });
+
+        //Обработка нажатия "Enter" в поле добавления
+        window.document.querySelector("#ToDoNewItem").addEventListener("keyup", function(event){
+            if (event.keyCode == 13){
+                contextItemView.add();
+            }
         });
 
         //Обработка ввода текста в поле "Поиск"
